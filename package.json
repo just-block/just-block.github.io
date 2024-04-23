@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "start:browser": "npx concurrently --kill-others-on-fail \"npm run dev\" \"npm run dev:api:start\"",
+    "dev": "vite --mode=development",
+    "build:prod": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode development",
     "test": "npx vitest src",
     "dev:api:start": "npx wrangler pages dev /functions --compatibility-date=2023-09-22 --compatibility-flags=\"nodejs_compat\"",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "typecheck": "npx tsc",
-    "preview": "vite preview"
+    "typecheck": "npx tsc"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.4",
@@ -36,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
