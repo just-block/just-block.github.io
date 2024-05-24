@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "start:browser": "npx concurrently --kill-others-on-fail \"npm run dev\" \"npm run dev:api:start\"",
-    "dev": "vite --mode=development",
+    "build:dev-with-api": "tsc && vite build --mode development && npm run dev:api:start",
     "build:prod": "tsc && vite build",
-    "build:dev": "tsc && vite build --mode development",
     "test": "npx vitest src",
+    "dev": "vite --mode=development",
     "dev:api:start": "npx wrangler pages dev /functions --compatibility-date=2023-09-22 --compatibility-flags=\"nodejs_compat\"",
+    "generate-db-types": "docker info > /dev/null 2>&1 && export $(cat .dev.vars | grep -v '^#' | xargs) && npx supabase gen types typescript --db-url $DB_URL > ./functions/db/databaseTypes.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck": "npx tsc"
   },
@@ -26,6 +27,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "simplebar-react": "^3.2.4",
+    "supabase": "^1.110.1",
     "wrangler": "^3.49.0",
     "zod": "^3.22.4"
   },
