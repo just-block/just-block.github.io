@@ -8,6 +8,7 @@
     "build:dev-with-api": "tsc && vite build --mode development && npm run dev:api:start",
     "build:prod": "tsc && vite build",
     "build:prod:zip": "npm run build:prod && zip -r justBlock.zip public && open https://chrome.google.com/webstore/devconsole/06336b0b-06ac-4772-9969-db9169ef0463/jbclpnhceoikcflgfdlfonceofcbjpgd/edit/package",
+    "start:landing": "npx serve ./landing",
     "test": "npx vitest src",
     "dev": "vite --mode=development",
     "dev:api:start": "npx wrangler pages dev /functions --compatibility-date=2023-09-22 --compatibility-flags=\"nodejs_compat\"",
