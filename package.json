@@ -1,53 +1,16 @@
 {
-  "name": "just-block-extension",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "just-block-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start:browser": "npx concurrently --kill-others-on-fail \"npm run dev\" \"npm run dev:api:start\"",
-    "build:dev-with-api": "tsc && vite build --mode development && npm run dev:api:start",
-    "build:prod": "tsc && vite build",
-    "build:prod:zip": "npm run build:prod && zip -r justBlock.zip public && open https://chrome.google.com/webstore/devconsole/06336b0b-06ac-4772-9969-db9169ef0463/jbclpnhceoikcflgfdlfonceofcbjpgd/edit/package",
-    "test": "npx vitest src",
-    "dev": "vite --mode=development",
-    "dev:api:start": "npx wrangler pages dev /functions --compatibility-date=2023-09-22 --compatibility-flags=\"nodejs_compat\"",
-    "generate-db-types": "docker info > /dev/null 2>&1 && export $(cat .dev.vars | grep -v '^#' | xargs) && npx supabase gen types typescript --db-url $DB_URL > ./functions/db/databaseTypes.ts",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "typecheck": "npx tsc"
+    "start:landing": "npx serve ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@ant-design/icons": "^5.3.4",
-    "@emotion/css": "^11.11.2",
-    "@supabase/supabase-js": "^2.43.4",
-    "antd": "^5.15.3",
-    "framer-motion": "^11.0.15",
-    "mobx": "^6.12.0",
-    "mobx-form-lite": "^0.9.4",
-    "mobx-react-lite": "^4.0.6",
-    "node-fetch": "^3.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "simplebar-react": "^3.2.4",
-    "supabase": "^1.110.1",
-    "wrangler": "^3.49.0",
-    "zod": "^3.23.8"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240405.0",
-    "@types/chrome": "^0.0.263",
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
-    "@vitejs/plugin-react": "^4.2.1",
-    "concurrently": "^8.2.2",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "prettier": "^3.2.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.1.6",
-    "vitest": "^1.4.0"
+    "serve": "^14.2.3"
   }
 }
