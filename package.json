@@ -1,16 +1,14 @@
 {
-  "name": "just-block-landing",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "just-block-landing2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start:landing": "npx serve ./src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "serve": "^14.2.3"
+    "vite": "^5.2.0"
   }
 }
