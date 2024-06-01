@@ -6,7 +6,15 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: -apple-system, Inter, system-ui, Avenir, Helvetica, Arial,
+  sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
   margin: 0;
   padding: 0;
   color: var(--text-main);
@@ -52,7 +60,7 @@ main {
 }
 
 .main-section .title {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 42px;
   padding: 0;
   margin: 0;
