@@ -149,6 +149,10 @@ main {
   font-size: 18px;
 }
 
+.faq .question {
+  font-weight: 500;
+}
+
 footer {
   background-color: var(--c-yellow-pastel);
   padding: 16px;
