@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Block websites and get free time for what truly matters" />
+    <meta
+      name="description"
+      content="Block websites and get free time for what truly matters"
+    />
     <title>
       JustBlock - Block websites and get free time for what truly matters
     </title>
@@ -14,17 +17,24 @@
     <link rel="icon" href="img/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4HE30WL8HN"></script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-4HE30WL8HN"
+  ></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-4HE30WL8HN');
+    const mode = "%MODE%";
+    if (mode !== "development") {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-4HE30WL8HN");
+    }
   </script>
   <body>
     <header>
-      <img alt="JustBlock logo" src="img/full-logo.png" />
+      <img alt="JustBlock logo" height="60" src="img/full-logo.png" />
     </header>
 
     <main>
