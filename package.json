@@ -11,5 +11,8 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@builder.io/partytown": "^0.10.2"
   }
 }
