@@ -1,8 +1,15 @@
+:root {
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --text-main: #222;
+  --c-yellow-pastel: #fefdf7;
+  --text-secondary: rgb(75, 85, 99);
+}
+
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
 }
@@ -13,7 +20,7 @@ header {
   padding-bottom: 48px;
   display: flex;
   justify-content: center;
-  background-color: #fefdf7;
+  background-color: var(--c-yellow-pastel);
 }
 
 /* Header */
@@ -31,13 +38,14 @@ main {
 /* Main section */
 .main-section-wrapper {
   width: 100%;
-  background-color: #fefdf7;
+  background-color: var(--c-yellow-pastel);
   padding-bottom: 32px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .main-section {
   max-width: 700px;
+  padding: 0 16px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -54,7 +62,7 @@ main {
 
 .main-section .description {
   font-size: 18px;
-  color: rgb(75, 85, 99);
+  color: var(--text-secondary);
   padding: 0;
   margin: 0;
   text-align: center;
@@ -88,7 +96,7 @@ main {
   justify-content: center;
   transition: background 0.3s ease;
   border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   align-self: center;
 }
 
@@ -101,6 +109,7 @@ main {
 }
 
 .features {
+  padding: 0 16px;
   margin-top: 48px;
   margin-bottom: 48px;
 }
@@ -115,6 +124,7 @@ main {
 }
 
 .faq {
+  padding: 0 16px;
   margin-bottom: 48px;
   max-width: 600px;
 }
@@ -132,10 +142,12 @@ main {
 }
 
 footer {
-  background-color: #fefdf7;
-  padding: 16px 0;
+  background-color: var(--c-yellow-pastel);
+  padding: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
+  color: var(--text-secondary);
+  box-shadow: 1px -1px 4px rgba(0, 0, 0, 0.1);
 }
