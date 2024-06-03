@@ -56,6 +56,7 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .main-section .title {
@@ -160,4 +161,9 @@ footer {
   gap: 16px;
   color: var(--text-secondary);
   box-shadow: 1px -1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.link-no-style {
+  text-decoration: none;
+  color: inherit;
 }
