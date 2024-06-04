@@ -13,6 +13,7 @@
     "dev:api:start": "npx wrangler pages dev /functions --compatibility-date=2023-09-22 --compatibility-flags=\"nodejs_compat\"",
     "generate-db-types": "docker info > /dev/null 2>&1 && export $(cat .dev.vars | grep -v '^#' | xargs) && npx supabase gen types typescript --db-url $DB_URL > ./functions/db/databaseTypes.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "bundle-visualize": "npx vite-bundle-visualizer",
     "typecheck": "npx tsc"
   },
   "dependencies": {
@@ -48,6 +49,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",
+    "vite-bundle-visualizer": "^1.2.1",
     "vitest": "^1.4.0"
   }
 }
