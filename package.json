@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start:browser": "npx concurrently --kill-others-on-fail \"npm run dev\" \"npm run dev:api:start\"",
-    "build:dev-with-api": "tsc && vite build --mode development && npm run dev:api:start",
+    "build:dev": "tsc && vite build --mode development",
     "build:prod": "tsc && vite build",
     "build:prod:zip": "npm run build:prod && rm -f justBlock.zip && cd dist && zip -r ../justBlock.zip . && open https://chrome.google.com/webstore/devconsole/06336b0b-06ac-4772-9969-db9169ef0463/jbclpnhceoikcflgfdlfonceofcbjpgd/edit/package",
     "test": "npx vitest src",
@@ -22,6 +22,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@supabase/supabase-js": "^2.43.4",
+    "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.0.15",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240405.0",
+    "@types/canvas-confetti": "^1.6.4",
     "@types/chrome": "^0.0.263",
     "@types/node": "^20.14.1",
     "@types/react": "^18.2.64",
