@@ -116,7 +116,7 @@ export default function Page() {
       </main>
       <footer
         className={
-          "bg-pastel p-4 flex justify-center items-center gap-4 text-muted-foreground shadow-[1px_-1px_4px_rgba(0,0,0,0.2)]"
+          "bg-pastel p-4 flex justify-center items-center gap-4 text-muted-foreground shadow-[1px_-1px_2px_rgba(0,0,0,0.2)]"
         }
       >
         <p>&copy; 2024 JustBlock. All rights reserved.</p>
