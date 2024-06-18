@@ -14,6 +14,7 @@ const font = Roboto({
 
 export const metadata: Metadata = {
   title: "JustBlock",
+  keywords: "block websites chrome, block websites, chrome extension",
   description:
     "Chrome extension to block websites. Block websites and get free time for what truly matters",
 };
