@@ -16,7 +16,7 @@ export default function Page() {
           <p>
             In the digital age, distractions are just a click away. Social
             media, news sites, and various forms of entertainment can easily
-            consume our time and hinder productivity. Blocking these distracting
+            consume our time. Blocking these distracting
             websites can help you stay focused on your tasks and achieve your
             goals more efficiently.
           </p>
