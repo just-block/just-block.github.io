@@ -1,20 +1,14 @@
-import Image from "next/image";
 import { Highlight } from "@/components/highlight";
 import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
 import { extensionLink, supportEmail } from "@/lib/config";
+import { JustBlockLogo } from "@/components/just-block-logo";
 
 export default function Page() {
   return (
     <>
       <div className={"flex justify-center pt-5 pb-5 bg-pastel"}>
-        <Image
-          alt="JustBlock logo"
-          width="152"
-          height="60"
-          className={"max-w-full max-h-full"}
-          src={"/img/full-logo.png"}
-        />
+        <JustBlockLogo />
       </div>
 
       <main className={"flex flex-col items-center"}>

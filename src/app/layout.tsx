@@ -12,7 +12,8 @@ const font = Roboto({
 
 export const metadata: Metadata = {
   title: "JustBlock",
-  description: "Chrome extension to block websites. Block websites and get free time for what truly matters",
+  description:
+    "Chrome extension to block websites. Block websites and get free time for what truly matters",
 };
 
 export default function RootLayout({
