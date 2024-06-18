@@ -31,7 +31,7 @@ export default function Page() {
           </h2>
 
           <p>
-            Follow these simple steps to start blocking websites:
+            Follow these simple steps:
           </p>
 
           <ol className="list-decimal list-inside space-y-4">
