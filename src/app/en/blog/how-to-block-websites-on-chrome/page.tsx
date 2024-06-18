@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className="bg-white py-12 ">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        <h1 className="font-bold tracking-tight sm:text-4xl mb-8">
+        <h1 className="font-bold tracking-tight text-4xl mb-8">
           How to block websites on Chrome
         </h1>
 
