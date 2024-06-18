@@ -95,8 +95,9 @@ export default function Page() {
 
           <p>
             JustBlock offers a simple and effective solution to help you stay
-            focused and productive by blocking distracting websites. Give it a
-            try and take control of your online experience today!
+            focused and productive by blocking distracting websites. Don't let
+            websites control you. Control them instead and say no to
+            distractions.
           </p>
         </div>
       </div>
