@@ -1,10 +1,13 @@
+import { extensionLink } from "@/lib/config";
+
 export const navRoutes = [
   {
     href: "/",
-    label: "Home",
+    isSmHidden: true,
+    label: "Main",
   },
   {
-    href: "/en/welcome",
-    label: "How to use",
+    href: extensionLink,
+    label: "Chrome extension",
   },
 ];

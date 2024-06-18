@@ -81,12 +81,11 @@ export default function Page() {
           </p>
         </div>
         <div className={"mb-4 text-xl"}>
-          <h3 className="text-xl font-semibold mb-2">
-            How do I purchase the unlimited version?
-          </h3>
+          <h3 className="text-xl font-semibold mb-2">Is it free?</h3>
           <p>
-            To purchase the unlimited version, click on the JustBlock extension
-            icon and follow the prompts to complete your purchase.
+            The first 3 websites are free to block. To block more websites, you
+            can purchase the unlimited version for $9.99. No subscriptions,
+            one-time purchase, lifetime access.
           </p>
         </div>
 
