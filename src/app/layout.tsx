@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const font = Roboto({
   subsets: ["latin"],
@@ -28,11 +30,13 @@ export default function RootLayout({
       )}
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased relative",
           font.variable,
         )}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
