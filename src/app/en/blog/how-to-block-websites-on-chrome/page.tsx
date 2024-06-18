@@ -27,12 +27,11 @@ export default function Page() {
           </p>
 
           <h2 className="text-3xl font-bold mb-4">
-            How to Block Websites with JustBlock
+            How to block websites with JustBlock
           </h2>
 
           <p>
-            Follow these simple steps to start blocking websites using
-            JustBlock:
+            Follow these simple steps to start blocking websites:
           </p>
 
           <ol className="list-decimal list-inside space-y-4">
@@ -86,7 +85,7 @@ export default function Page() {
             in the book "Atomic Habits."
           </p>
 
-          <h2 className="text-3xl font-bold mb-4">Key Features of JustBlock</h2>
+          <h2 className="text-3xl font-bold mb-4">Key features of JustBlock</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>Block distracting websites with a single click</li>
             <li>Solve captcha to prevent impulsive unblocking</li>
