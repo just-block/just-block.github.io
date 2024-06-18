@@ -8,15 +8,16 @@ export default function Page() {
   return (
     <div className={"flex flex-col w-full items-center p-5 bg-pastel"}>
       <JustBlockLogo />
-      <h1 className={"font-bold text-4xl mt-12"}>Open extension list</h1>
+      <h1 className={"font-bold text-4xl mt-8 mb-8"}>How to use</h1>
+      <h2 className={"text-3xl"}>1. Open the extension list</h2>
       <Image src={first} width={800} alt={"Open extension list"} />
-      <h1 className={"font-bold text-4xl"}>Pin the extension</h1>
+      <h2 className={"text-3xl"}>2. Pin the extension</h2>
       <Image src={second} width={800} alt={"Pin the extension"} />
-      <h1 className={"font-bold text-4xl"}>
-        Go to a website you'd like to block,
+      <h2 className={"text-3xl"}>
+        3. Go to a website you'd like to block,
         <br />
         open extension and click "Block current website"
-      </h1>
+      </h2>
       <Image src={third} width={800} alt={"Block a website"} />
     </div>
   );
