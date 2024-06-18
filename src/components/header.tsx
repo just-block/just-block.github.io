@@ -85,7 +85,7 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               title={"Get Chrome extension"}
-              className="mr-6 hover:bg-yellow-100"
+              className="hover:bg-yellow-100"
             >
               <a href={extensionLink} target={"_blank"}>
                 <ChromeIcon />
