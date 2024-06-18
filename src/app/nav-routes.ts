@@ -7,6 +7,10 @@ export const navRoutes = [
     label: "Main",
   },
   {
+    href: '/en/blog/how-to-block-websites-on-chrome',
+    label: 'How to use',
+  },
+  {
     href: extensionLink,
     label: "Chrome extension",
   },

@@ -36,13 +36,12 @@ export default function Page() {
           Key Features
         </h2>
         <ul className="list-disc pl-6 mb-8 text-xl">
-          <li className="mb-2">Block distracting websites</li>
+          <li className="mb-2">Block distracting websites with a single click</li>
           <li className="mb-2">
-            Solve captcha to prevent yourself from unblocking websites
-            impulsively. Think twice before accessing a distracting website
+            Solve captcha to prevent yourself from impulsive blocking
           </li>
           <li className="mb-2">
-            No subscription, one-time purchase of $9.99 for unlimited blocking
+            One-time purchase of $9.99 for unlimited blocking
           </li>
           <li>No excessive features, no sign up, just block 😎</li>
         </ul>

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import first from "./img/1.png";
-import second from "./img/2.png";
-import third from "./img/3.png";
+import first from "@/app/en/img/1.png";
+import second from "@/app/en/img/2.png";
+import third from "@/app/en/img/3.png";
 
 export default function Page() {
   return (
