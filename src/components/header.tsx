@@ -23,6 +23,7 @@ export const Header = () => {
       style={
         isScrolled
           ? {
+              WebkitBackdropFilter: "saturate(180%) blur(20px)",
               backdropFilter: "saturate(180%) blur(20px)",
               backgroundColor: "hsla(0,0%,100%,.86)",
             }
