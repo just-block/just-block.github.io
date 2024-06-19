@@ -1,5 +1,5 @@
 import { JustBlockLogo } from "@/components/just-block-logo";
-import { supportEmail } from "@/lib/config";
+import { supportEmail } from "@/shared/config";
 
 export const Footer = () => {
   return (

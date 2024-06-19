@@ -1,6 +1,6 @@
 import Script from "next/script";
 import React, { ReactNode } from "react";
-import { websiteUrl } from "@/lib/config";
+import { websiteUrl } from "@/shared/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

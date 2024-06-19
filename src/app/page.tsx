@@ -1,7 +1,8 @@
 import { Highlight } from "@/components/highlight";
 import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
-import { extensionLink, supportEmail } from "@/lib/config";
+import { extensionLink, supportEmail } from "@/shared/config";
+import { keyFeatures } from "@/shared/text/key-features";
 
 export default function Page() {
   return (
@@ -36,14 +37,11 @@ export default function Page() {
           Key Features
         </h2>
         <ul className="list-disc pl-6 mb-8 text-xl">
-          <li className="mb-2">Block distracting websites with a single click</li>
-          <li className="mb-2">
-            Solve captcha to prevent yourself from impulsive blocking
-          </li>
-          <li className="mb-2">
-            One-time purchase of $9.99 for unlimited blocking
-          </li>
-          <li>No excessive features, no sign up, just block 😎</li>
+          {keyFeatures.map((feature, i) => (
+            <li className="mb-2" key={i}>
+              {feature}
+            </li>
+          ))}
         </ul>
 
         <h2 className="text-2xl font-bold mb-4 text-center" id={"faq"}>

@@ -1,4 +1,4 @@
-import { extensionLink } from "@/lib/config";
+import { extensionLink } from "@/shared/config";
 
 export const navRoutes = [
   {
@@ -7,8 +7,8 @@ export const navRoutes = [
     label: "Main",
   },
   {
-    href: '/en/blog/how-to-block-websites-on-chrome',
-    label: 'How to use',
+    href: "/en/blog/how-to-block-websites-on-chrome",
+    label: "How to use",
   },
   {
     href: extensionLink,
