@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
 import { extensionLink, supportEmail } from "@/shared/config";
 import { keyFeatures } from "@/shared/text/key-features";
+import { YoutubeTutorial } from "@/shared/youtube-tutorial";
 
 export default function Page() {
   return (
@@ -32,8 +33,12 @@ export default function Page() {
         </section>
       </div>
 
-      <div className="p-8 rounded-lg max-w-3xl">
-        <h2 className="text-2xl font-bold mb-4 text-center" id={"features"}>
+      <div className="flex flex-col items-center p-8 rounded-lg max-w-3xl">
+        <YoutubeTutorial />
+        <h2
+          className="text-2xl font-bold mb-4 text-center mt-6"
+          id={"features"}
+        >
           Key Features
         </h2>
         <ul className="list-disc pl-6 mb-8 text-xl">
@@ -86,7 +91,7 @@ export default function Page() {
           </p>
         </div>
 
-        <div className={"text-xl"}>
+        <div className={"text-xl self-start"}>
           <h3 className="text-xl font-semibold mb-2">
             How can I contact support?
           </h3>
