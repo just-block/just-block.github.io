@@ -1,15 +1,25 @@
 "use client";
-import YouTube from "react-youtube";
-
-const height = 390 * 0.75;
-const width = 640 * 0.75;
 
 export const YoutubeTutorial = () => {
-  const opts = { height, width };
-
   return (
-    <div style={{ height, width, borderRadius: 16, overflow: "hidden" }}>
-      <YouTube videoId="l7TyGJtxO4g" opts={opts} />
+    <div
+      className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl"}
+      style={{
+        position: "relative",
+      }}
+    >
+      <iframe
+        src="https://www.youtube.com/embed/l7TyGJtxO4g"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+        allowFullScreen
+        style={{
+          width: "100%",
+          height: "100%",
+          aspectRatio: "16 / 9",
+          borderRadius: 16,
+        }}
+      ></iframe>
     </div>
   );
 };
