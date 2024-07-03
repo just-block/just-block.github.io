@@ -3,7 +3,7 @@
 export const YoutubeTutorial = () => {
   return (
     <div
-      className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl"}
+      className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl border-4 border-yellow-100"}
       style={{
         position: "relative",
       }}
@@ -17,7 +17,7 @@ export const YoutubeTutorial = () => {
           width: "100%",
           height: "100%",
           aspectRatio: "16 / 9",
-          borderRadius: 16,
+          borderRadius: 12,
         }}
       ></iframe>
     </div>
