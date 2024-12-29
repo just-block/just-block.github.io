@@ -6,7 +6,7 @@ import { Menu } from "lucide-react";
 import React from "react";
 import { JustBlockLogo } from "@/components/just-block-logo";
 import { useScrolled } from "@/lib/use-scrolled";
-import { navRoutes } from "@/app/nav-routes";
+import { navRoutes } from "@/app/navRoutes";
 import {
   Sheet,
   SheetClose,

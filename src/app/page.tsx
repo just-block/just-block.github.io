@@ -1,7 +1,7 @@
 import { Highlight } from "@/components/highlight";
 import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
-import { extensionLink, supportEmail } from "@/shared/config";
+import { extensionLink, price, supportEmail } from "@/shared/config";
 import { keyFeatures } from "@/shared/text/key-features";
 import { YoutubeTutorial } from "@/shared/youtube-tutorial";
 
@@ -86,8 +86,8 @@ export default function Page() {
           <h3 className="text-xl font-semibold mb-2">Is it free?</h3>
           <p>
             The first 3 websites are free to block. To block more websites, you
-            can purchase the unlimited version for $9.99. No subscriptions,
-            one-time purchase, lifetime access.
+            can purchase the unlimited version for {"$"}
+            {price}. No subscriptions, one-time purchase, lifetime access.
           </p>
         </div>
 
