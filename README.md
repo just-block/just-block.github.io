@@ -1,11 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JustBlock
 
-## Getting Started
+Block websites and get free time for what truly matters: [just-block.com](https://just-block.com)
 
-First, run the development server:
-
-```bash
-npm run dev
-```
+### Key Features
+- No subscriptions, no sign up
+- Block distracting websites with a single click
+- Solve captcha to prevent impulsive unblocking
 
 
