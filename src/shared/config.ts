@@ -1,5 +1,5 @@
-export const supportEmail = "support@just-block.com";
-export const websiteUrl = "https://just-block.com";
+export const supportEmail = "7gorbachevm@gmail.com";
+export const websiteUrl = "https://just-block.github.io";
 export const extensionLink =
   "https://chrome.google.com/webstore/detail/jbclpnhceoikcflgfdlfonceofcbjpgd";
 

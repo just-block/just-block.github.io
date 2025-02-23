@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://just-block.com
+Host: https://just-block.github.io
 
 # Sitemaps
-Sitemap: https://just-block.com/sitemap.xml
+Sitemap: https://just-block.github.io/sitemap.xml
