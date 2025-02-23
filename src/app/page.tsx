@@ -79,7 +79,7 @@ export default function Page() {
             The captcha is designed to prevent you from unblocking websites
             impulsively. It helps you think twice before accessing a distracting
             website. This aligns with the concept of making bad habits harder to
-            repeat, as discussed in the book "Atomic Habits."
+            repeat, as discussed in the book "Atomic Habits"
           </p>
         </div>
         <div className={"mb-4 text-xl"}>
