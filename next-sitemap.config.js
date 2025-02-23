@@ -1,7 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: 'https://just-block.github.io',
-  basePath: '/just-block-landing',
 
   generateRobotsTxt: true,
   exclude: [
