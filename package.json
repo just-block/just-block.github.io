@@ -31,7 +31,7 @@
     "mobx-form-lite": "^0.9.4",
     "mobx-persist-store": "^1.1.5",
     "mobx-react-lite": "^4.0.6",
-    "mobx-react-observer": "^1.0.3",
+    "mobx-react-observer": "^1.1.0",
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
