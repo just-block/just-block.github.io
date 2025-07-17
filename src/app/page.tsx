@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
 import { extensionLink, price, supportEmail } from "@/shared/config";
 import { keyFeatures } from "@/shared/text/key-features";
-import { YoutubeTutorial } from "@/shared/youtube-tutorial";
+import { VideoTutorial } from "@/shared/video-tutorial";
 
 export default function Page() {
   return (
@@ -34,7 +34,7 @@ export default function Page() {
       </div>
 
       <div className="flex flex-col items-center p-8 rounded-lg max-w-3xl">
-        <YoutubeTutorial />
+        <VideoTutorial />
         <h2
           className="text-2xl font-bold mb-4 text-center mt-6"
           id={"features"}

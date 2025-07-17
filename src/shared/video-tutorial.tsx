@@ -1,6 +1,6 @@
 "use client";
 
-export const YoutubeTutorial = () => {
+export const VideoTutorial = () => {
   return (
     <div
       className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl border-4 border-yellow-100"}
@@ -8,18 +8,18 @@ export const YoutubeTutorial = () => {
         position: "relative",
       }}
     >
-      <iframe
-        src="https://www.youtube.com/embed/l7TyGJtxO4g"
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-        allowFullScreen
+      <video
+        controls
+        poster="https://general-bucket.memocard.org/just-block-video-prevew.png"
         style={{
           width: "100%",
           height: "100%",
           aspectRatio: "16 / 9",
           borderRadius: 12,
         }}
-      ></iframe>
+      >
+        <source src="https://general-bucket.memocard.org/just-block.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 };
