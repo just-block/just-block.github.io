@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import React from "react";
 import { JustBlockLogo } from "@/components/just-block-logo";
-import { useScrolled } from "@/lib/use-scrolled";
 import { navRoutes } from "@/app/navRoutes";
 import {
   Sheet,
@@ -15,21 +14,9 @@ import {
 } from "@/components/ui/sheet";
 
 export const Header = () => {
-  const isScrolled = useScrolled();
-
   return (
-    <header
-      className={"sm:flex sm:justify-between bg-pastel sticky top-0"}
-      style={
-        isScrolled
-          ? {
-              WebkitBackdropFilter: "saturate(180%) blur(20px)",
-              backdropFilter: "saturate(180%) blur(20px)",
-              backgroundColor: "hsla(0,0%,100%,.86)",
-            }
-          : undefined
-      }
-    >
+    <header className={"sm:flex sm:justify-between bg-pastel sticky top-0"}>
+
       <Container>
         <div
           className={
