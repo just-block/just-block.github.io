@@ -1,0 +1,7 @@
+{
+  "name": "just-block",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
