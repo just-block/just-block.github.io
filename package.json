@@ -23,7 +23,6 @@
     "@types/uuid": "^9.0.8",
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.0",
-    "client-captcha": "^0.8.5",
     "clsx": "^2.1.1",
     "framer-motion": "^11.0.15",
     "lucide-react": "^0.383.0",
