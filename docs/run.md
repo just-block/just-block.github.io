@@ -13,15 +13,15 @@ This installs dependencies for all packages.
 ## Landing page
 
 ```bash
-npm run dev -w packages/landing
+npm run dev -w landing
 ```
 
-Opens at http://localhost:3000.
+Opens at http://localhost:11052.
 
 To preview the production static build:
 
 ```bash
-npm run build-and-serve -w packages/landing
+npm run build-and-serve -w landing
 ```
 
 ## Extension
@@ -29,17 +29,17 @@ npm run build-and-serve -w packages/landing
 ### Dev mode (browser preview, no Chrome APIs)
 
 ```bash
-npm run dev -w packages/extension
+npm run dev -w extension
 ```
 
-Opens at http://localhost:5173. Useful for UI work — Chrome extension APIs won't be available.
+Opens at http://localhost:10274. Useful for UI work — Chrome extension APIs won't be available.
 
 ### Load as Chrome extension
 
 1. Build the extension:
 
 ```bash
-npm run build:dev -w packages/extension
+npm run build:dev -w extension
 ```
 
 2. Open Chrome and go to `chrome://extensions`
