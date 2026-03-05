@@ -1,3 +1,9 @@
+# To enable this workflow:
+# 1. Go to GitHub repo → Settings → Secrets and variables → Actions → Variables tab
+# 2. Click "New repository variable"
+# 3. Name: ENABLE_LANDING_DEPLOY, Value: true
+# 4. Save — the workflow will run on next push to packages/landing/** or manual dispatch
+
 name: Deploy Landing to GitHub Pages
 
 on:
@@ -5,6 +11,8 @@ on:
     branches: ["main"]
     paths:
       - "packages/landing/**"
+      - "package.json"
+      - ".github/workflows/deploy-landing.yml"
   workflow_dispatch:
 
 permissions:
