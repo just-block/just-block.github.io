@@ -24,9 +24,6 @@ jobs:
   build:
     if: ${{ vars.ENABLE_LANDING_DEPLOY == 'true' }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/landing
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +33,7 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
+        working-directory: packages/landing
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
