@@ -1,7 +1,7 @@
 import { Highlight } from "@/components/highlight";
 import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
-import { extensionLink, price, supportEmail } from "@/shared/config";
+import { extensionLink, price, supportEmail } from "shared";
 import { keyFeatures } from "@/shared/text/key-features";
 import { VideoTutorial } from "@/shared/video-tutorial";
 

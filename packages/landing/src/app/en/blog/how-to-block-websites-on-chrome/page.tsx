@@ -1,4 +1,4 @@
-import { extensionLink } from "@/shared/config";
+import { extensionLink } from "shared";
 import first from "@/app/en/img/1.png";
 import second from "@/app/en/img/2.png";
 import third from "@/app/en/img/3.png";
