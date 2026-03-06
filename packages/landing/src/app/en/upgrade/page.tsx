@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { price } from "@/shared/config";
+import { price } from "shared";
 import { StepNumber } from "@/components/step-number";
 
 export default function Page() {
