@@ -5,6 +5,7 @@ import { extensionLink, price, supportEmail } from "shared";
 import { KeyFeatures } from "@/components/key-features";
 import { Faq } from "@/components/faq";
 import { VideoTutorial } from "@/shared/video-tutorial";
+import { PlayDemoLink } from "@/components/play-demo-link";
 
 export default function Page() {
   return (
@@ -31,7 +32,7 @@ export default function Page() {
       </div>
 
       <div className="flex flex-col items-center p-8 rounded-lg max-w-3xl">
-        <VideoTutorial />
+        <VideoTutorial id="demo" />
         <div className="w-full mt-6 mb-8">
           <KeyFeatures />
         </div>
@@ -40,8 +41,13 @@ export default function Page() {
           items={[
             {
               question: "How do I block a website?",
-              answer:
-                "Click on the JustBlock extension icon in your browser and enter the URL of the website you want to block.",
+              answer: (
+                <>
+                  Click on the JustBlock extension icon in your browser and
+                  enter the URL of the website you want to block. See the{" "}
+                  <PlayDemoLink />
+                </>
+              ),
             },
             {
               question: "Can I unblock a website?",
