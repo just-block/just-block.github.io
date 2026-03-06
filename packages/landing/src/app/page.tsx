@@ -2,7 +2,7 @@ import { Highlight } from "@/components/highlight";
 import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
 import { extensionLink, price, supportEmail } from "shared";
-import { keyFeatures } from "@/shared/text/key-features";
+import { KeyFeatures } from "@/components/key-features";
 import { VideoTutorial } from "@/shared/video-tutorial";
 
 export default function Page() {
@@ -31,19 +31,9 @@ export default function Page() {
 
       <div className="flex flex-col items-center p-8 rounded-lg max-w-3xl">
         <VideoTutorial />
-        <h2
-          className="text-2xl font-bold mb-4 text-center mt-6"
-          id={"features"}
-        >
-          Key Features
-        </h2>
-        <ul className="list-disc pl-6 mb-8 text-xl">
-          {keyFeatures.map((feature, i) => (
-            <li className="mb-2" key={i}>
-              {feature}
-            </li>
-          ))}
-        </ul>
+        <div className="w-full mt-6 mb-8">
+          <KeyFeatures />
+        </div>
 
         <h2 className="text-2xl font-bold mb-4 text-center" id={"faq"}>
           FAQ
