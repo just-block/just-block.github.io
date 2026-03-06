@@ -3,7 +3,7 @@
 export const VideoTutorial = () => {
   return (
     <div
-      className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl border-4 border-yellow-100"}
+      className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl border-4 border-amber-200/60"}
       style={{
         position: "relative",
       }}

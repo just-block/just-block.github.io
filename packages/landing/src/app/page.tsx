@@ -8,17 +8,13 @@ import { VideoTutorial } from "@/shared/video-tutorial";
 export default function Page() {
   return (
     <main className={"flex flex-col items-center"}>
-      <div className="w-full bg-pastel pb-8 pt-8 border-b border-amber-200/40">
+      <div className="w-full bg-[#faf6eb] pb-8 pt-8 border-b border-amber-200/60">
         <section className="max-w-[700px] px-4 mx-auto flex flex-col items-center">
           <h1 className="title text-center pb-4 text-4xl leading-snug font-bold">
-            Block websites and get <Highlight>free time</Highlight>
-            <br />
-            for what <Highlight>truly matters</Highlight>
+            Block websites <Highlight>in one click</Highlight>
           </h1>
-          <p className="text-center text-lg">
-            Social media is fine-tuned to captivate our minds. Don't let
-            websites control you. Control them instead and say no to
-            distractions.
+          <p className="text-center text-lg text-amber-950/50">
+            Don&#39;t let distracting websites control you
           </p>
           <a href={extensionLink}>
             <Button
