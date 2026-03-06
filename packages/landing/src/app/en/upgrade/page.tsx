@@ -4,7 +4,7 @@ import { StepNumber } from "@/components/step-number";
 
 export default function Page() {
   return (
-    <div className="flex flex-col w-full items-center bg-pastel py-16 px-4 border-b border-amber-200/40">
+    <div className="flex flex-col w-full items-center bg-[#faf6eb] py-16 px-4 border-b border-amber-200/60">
       {/* Header */}
       <div className="text-center mb-16 max-w-xl">
         <h1 className="font-bold text-4xl md:text-5xl mb-6">How to upgrade</h1>

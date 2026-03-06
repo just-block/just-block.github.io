@@ -5,7 +5,7 @@ export const Highlight = (props: { children: ReactNode }) => {
   return (
     <span
       className={
-        "bg-[#fff2b3] px-1 py-0.5 rounded shadow-md inline transition duration-300 ease-in-out hover:bg-[#ffe57f]"
+        "bg-amber-200/60 px-1 py-0.5 rounded shadow-sm inline transition duration-300 ease-in-out hover:bg-amber-200/80"
       }
     >
       {children}
