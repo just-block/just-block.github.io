@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
 import { extensionLink, price, supportEmail } from "shared";
 import { KeyFeatures } from "@/components/key-features";
+import { Faq } from "@/components/faq";
 import { VideoTutorial } from "@/shared/video-tutorial";
 
 export default function Page() {
@@ -35,59 +36,48 @@ export default function Page() {
           <KeyFeatures />
         </div>
 
-        <h2 className="text-2xl font-bold mb-4 text-center" id={"faq"}>
-          FAQ
-        </h2>
-        <div className="mb-4 text-xl">
-          <h3 className="text-xl font-semibold mb-2">
-            How do I block a website?
-          </h3>
-          <p>
-            To block a website, click on the JustBlock extension icon in your
-            browser and enter the URL of the website you want to block.
-          </p>
-        </div>
-        <div className="mb-4 text-xl">
-          <h3 className="text-xl font-semibold mb-2">
-            Can I unblock a website?
-          </h3>
-          <p>
-            Yes, you can unblock a website by clicking on the JustBlock
-            extension icon, selecting the website you want to unblock, and
-            solving a captcha.
-          </p>
-        </div>
-        <div className="mb-4 text-xl">
-          <h3 className="text-xl font-semibold mb-2">
-            Why do I need to solve a captcha to unblock a website?
-          </h3>
-          <p>
-            The captcha is designed to prevent you from unblocking websites
-            impulsively. It helps you think twice before accessing a distracting
-            website. This aligns with the concept of making bad habits harder to
-            repeat, as discussed in the book "Atomic Habits"
-          </p>
-        </div>
-        <div className={"mb-4 text-xl"}>
-          <h3 className="text-xl font-semibold mb-2">Is it free?</h3>
-          <p>
-            The first 3 websites are free to block. To block more websites, you
-            can purchase the unlimited version for {"$"}
-            {price}. No subscriptions, one-time purchase, lifetime access.
-          </p>
-        </div>
-
-        <div className={"text-xl self-start"}>
-          <h3 className="text-xl font-semibold mb-2">
-            How can I contact support?
-          </h3>
-          <p>
-            Please write to the support email{" "}
-            <a href={`mailto:${supportEmail}`} className={"underline"}>
-              {supportEmail}
-            </a>
-          </p>
-        </div>
+        <Faq
+          items={[
+            {
+              question: "How do I block a website?",
+              answer:
+                "Click on the JustBlock extension icon in your browser and enter the URL of the website you want to block.",
+            },
+            {
+              question: "Can I unblock a website?",
+              answer:
+                "Yes — click the JustBlock icon, select the website you want to unblock, and solve a captcha.",
+            },
+            {
+              question: "Why do I need to solve a captcha to unblock?",
+              answer:
+                'The captcha adds friction so you think twice before accessing a distracting website. Inspired by the "Atomic Habits" idea of making bad habits harder.',
+            },
+            {
+              question: "Is it free?",
+              answer: (
+                <>
+                  The first 3 websites are free. For unlimited blocking, it's a
+                  one-time purchase of ${price} — no subscriptions.
+                </>
+              ),
+            },
+            {
+              question: "How can I contact support?",
+              answer: (
+                <>
+                  Email us at{" "}
+                  <a
+                    href={`mailto:${supportEmail}`}
+                    className="underline"
+                  >
+                    {supportEmail}
+                  </a>
+                </>
+              ),
+            },
+          ]}
+        />
       </div>
     </main>
   );
