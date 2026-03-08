@@ -3,5 +3,9 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "prettier:fix": "git ls-files -mo --exclude-standard -- './packages' | grep -E '\\.(ts|tsx|mts|json)$' | xargs -I {} prettier --write {}",
+    "prettier:fix:full": "prettier --write \"./packages/**/*.+(ts|tsx|mts|json)\""
+  }
 }
