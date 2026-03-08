@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "dotenvx": {
+      "source": "narasaka/skills",
+      "sourceType": "github",
+      "computedHash": "3b353414c25c2591cd9581227cf7b34df77a4b534f32350f34af79962c1b355b"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
