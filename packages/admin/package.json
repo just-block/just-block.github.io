@@ -15,8 +15,10 @@
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.90.21",
     "@trpc/client": "^11.12.0",
     "@trpc/server": "^11.12.0",
+    "@trpc/tanstack-react-query": "^11.12.0",
     "better-auth": "^1.5.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

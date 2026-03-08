@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useState } from "react"
+import { useState } from "react"
+import { useQuery, useMutation } from "@tanstack/react-query"
 import { api } from "@/api/trpc-api"
+import { queryClient } from "@/api/query-client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -76,55 +78,47 @@ function CopyButton({ text }: { text: string }) {
 }
 
 export function LicensesPage() {
-  const [licenses, setLicenses] = useState<License[]>([])
-  const [loading, setLoading] = useState(true)
-  const [createOpen, setCreateOpen] = useState(false)
-  const [newKey, setNewKey] = useState("")
-  const [creating, setCreating] = useState(false)
-  const [createError, setCreateError] = useState("")
-  const [deletingKey, setDeletingKey] = useState<string | null>(null)
+  const [createForm, setCreateForm] = useState<{
+    key: string
+    error: string
+  } | null>(null)
 
-  const fetchLicenses = useCallback(async () => {
-    try {
-      const data = await api.list.query()
-      setLicenses(data as License[])
-    } catch {
-      // silently fail
-    } finally {
-      setLoading(false)
-    }
-  }, [])
+  const { data: licenses = [], isLoading: loading } = useQuery(
+    api.list.queryOptions(),
+  )
 
-  useEffect(() => {
-    fetchLicenses()
-  }, [fetchLicenses])
+  const createMutation = useMutation(
+    api.create.mutationOptions({
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: api.list.queryKey() })
+        setCreateForm(null)
+      },
+      onError: (e) => {
+        setCreateForm((prev) =>
+          prev
+            ? { ...prev, error: e instanceof Error ? e.message : "Failed to create" }
+            : null,
+        )
+      },
+    }),
+  )
 
-  async function handleCreate() {
-    if (!newKey.trim()) return
-    setCreating(true)
-    setCreateError("")
-    try {
-      await api.create.mutate({ licenseKey: newKey.trim() })
-      setCreateOpen(false)
-      setNewKey("")
-      fetchLicenses()
-    } catch (e) {
-      setCreateError(e instanceof Error ? e.message : "Failed to create")
-    } finally {
-      setCreating(false)
-    }
+  const deactivateMutation = useMutation(
+    api.deactivate.mutationOptions({
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: api.list.queryKey() })
+      },
+    }),
+  )
+
+  function handleCreate() {
+    if (!createForm?.key.trim()) return
+    setCreateForm((prev) => (prev ? { ...prev, error: "" } : null))
+    createMutation.mutate({ licenseKey: createForm.key.trim() })
   }
 
-  async function handleDeactivate(licenseKey: string) {
-    setDeletingKey(licenseKey)
-    try {
-      await api.deactivate.mutate({ licenseKey })
-      fetchLicenses()
-    } catch {
-      // silently fail
-    } finally {
-      setDeletingKey(null)
-    }
+  function handleDeactivate(licenseKey: string) {
+    deactivateMutation.mutate({ licenseKey })
   }
 
   return (
@@ -134,11 +128,9 @@ export function LicensesPage() {
         <div className="flex gap-2">
           <Button
             size="sm"
-            onClick={() => {
-              setNewKey(generateLicenseKey())
-              setCreateError("")
-              setCreateOpen(true)
-            }}
+            onClick={() =>
+              setCreateForm({ key: generateLicenseKey(), error: "" })
+            }
           >
             <Plus className="size-3.5" />
             Create License
@@ -208,7 +200,7 @@ export function LicensesPage() {
                       <Button
                         variant="destructive"
                         size="icon-xs"
-                        disabled={deletingKey === license.licenseKey}
+                        disabled={deactivateMutation.isPending && deactivateMutation.variables?.licenseKey === license.licenseKey}
                         onClick={() => handleDeactivate(license.licenseKey)}
                       >
                         <Trash2 className="size-3" />
@@ -222,7 +214,7 @@ export function LicensesPage() {
         </Table>
       </div>
 
-      <Dialog open={createOpen} onOpenChange={setCreateOpen}>
+      <Dialog open={createForm !== null} onOpenChange={(open) => !open && setCreateForm(null)}>
         <DialogContent onOpenAutoFocus={(e) => e.preventDefault()}>
           <DialogHeader>
             <DialogTitle>Create License</DialogTitle>
@@ -233,30 +225,38 @@ export function LicensesPage() {
               <div className="flex gap-2">
                 <Input
                   id="license-key"
-                  value={newKey}
-                  onChange={(e) => setNewKey(e.target.value)}
+                  value={createForm?.key ?? ""}
+                  onChange={(e) =>
+                    setCreateForm((prev) =>
+                      prev ? { ...prev, key: e.target.value } : null,
+                    )
+                  }
                   className="font-mono"
                   placeholder="XXXXX-XXXXX-XXXXX-XXXXX"
                 />
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => setNewKey(generateLicenseKey())}
+                  onClick={() =>
+                    setCreateForm((prev) =>
+                      prev ? { ...prev, key: generateLicenseKey() } : null,
+                    )
+                  }
                 >
                   <RefreshCw className="size-4" />
                 </Button>
               </div>
             </div>
-            {createError && (
-              <p className="text-sm text-destructive">{createError}</p>
+            {createForm?.error && (
+              <p className="text-sm text-destructive">{createForm.error}</p>
             )}
           </div>
           <DialogFooter>
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button onClick={handleCreate} disabled={creating || !newKey.trim()}>
-              {creating ? "Creating..." : "Create"}
+            <Button onClick={handleCreate} disabled={createMutation.isPending || !createForm?.key.trim()}>
+              {createMutation.isPending ? "Creating..." : "Create"}
             </Button>
           </DialogFooter>
         </DialogContent>

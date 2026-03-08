@@ -1,8 +1,10 @@
 import { createTRPCClient, httpLink } from "@trpc/client"
+import { createTRPCOptionsProxy } from "@trpc/tanstack-react-query"
 import type { AppRouter } from "api"
 import { env } from "../env"
+import { queryClient } from "./query-client"
 
-export const api = createTRPCClient<AppRouter>({
+const trpcClient = createTRPCClient<AppRouter>({
   links: [
     httpLink({
       url: `${env.VITE_API_URL}/trpc`,
@@ -11,4 +13,9 @@ export const api = createTRPCClient<AppRouter>({
       },
     }),
   ],
+})
+
+export const api = createTRPCOptionsProxy<AppRouter>({
+  client: trpcClient,
+  queryClient,
 })
