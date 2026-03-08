@@ -4,6 +4,8 @@
   Chrome Extension to quickly block websites · <a href="https://just-block.github.io">just-block.github.io</a>
 </p>
 
+## Features
+
 - ✅ No subscriptions, no sign up
 - ⚡ Block distracting websites with a single click
 - 🧩 Solve captcha to prevent impulsive unblocking
@@ -12,13 +14,13 @@
 ## FAQ
 
 **How do I block a website?**
-Click on the JustBlock extension icon in your browser and enter the URL of the website you want to block.
+<br>Click on the JustBlock extension icon in your browser and enter the URL of the website you want to block.
 
 **Can I unblock a website?**
-Yes - click the JustBlock icon, select the website you want to unblock, and solve a captcha.
+<br>Yes - click the JustBlock icon, select the website you want to unblock, and solve a captcha.
 
 **Why do I need to solve a captcha to unblock?**
-The captcha adds friction so you think twice before accessing a distracting website. Inspired by the "Atomic Habits" idea of making bad habits harder.
+<br>The captcha adds friction so you think twice before accessing a distracting website. Inspired by the "Atomic Habits" idea of making bad habits harder.
 
 **Is it free?**
-The first 3 websites are free. For unlimited blocking, it's a one-time purchase of $2.99 - no subscriptions.
+<br>The first 3 websites are free. For unlimited blocking, it's a one-time purchase of $2.99 - no subscriptions.
