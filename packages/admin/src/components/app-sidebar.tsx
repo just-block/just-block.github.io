@@ -27,9 +27,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton size="lg" className="cursor-pointer">
-                  <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg text-sm font-bold">
-                    JB
-                  </div>
+                  <img src="/logo.png" alt="Just Block" className="size-8 rounded-lg" />
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-medium">Just Block</span>
                     <span className="truncate text-xs">Admin</span>
