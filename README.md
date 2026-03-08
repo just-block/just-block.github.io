@@ -4,6 +4,10 @@
   Chrome Extension to quickly block websites · <a href="https://just-block.github.io">just-block.github.io</a>
 </p>
 
+<p align="center">
+  <img src="assets/preview.png" alt="JustBlock preview" width="700" />
+</p>
+
 ## Features
 
 - ✅ No subscriptions, no sign up
