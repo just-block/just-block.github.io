@@ -24,6 +24,7 @@ import {
 import { Label } from "@/components/ui/label"
 import { Plus, Trash2, Copy, Check, RefreshCw } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
+import { LoadingSwap } from "@/components/ui/loading-swap"
 
 type License = {
   id: number
@@ -256,7 +257,7 @@ export function LicensesPage() {
               <Button variant="outline">Cancel</Button>
             </DialogClose>
             <Button onClick={handleCreate} disabled={createMutation.isPending || !createForm?.key.trim()}>
-              {createMutation.isPending ? "Creating..." : "Create"}
+              <LoadingSwap isLoading={createMutation.isPending}>Create</LoadingSwap>
             </Button>
           </DialogFooter>
         </DialogContent>

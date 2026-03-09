@@ -1,4 +1,4 @@
-import { authClient } from "@/auth-client"
+import { authClient } from "@/api/auth-client"
 import { LoginPage } from "@/pages/login"
 import { LicensesPage } from "@/pages/licenses-page"
 import { AppSidebar } from "@/components/app-sidebar"
