@@ -1,5 +1,5 @@
 import { KeyRound, LogOut, ChevronsUpDown } from "lucide-react"
-import { authClient } from "@/auth-client"
+import { authClient } from "@/api/auth-client"
 
 import {
   Sidebar,

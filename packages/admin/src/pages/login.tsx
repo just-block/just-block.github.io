@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { authClient } from "@/auth-client"
+import { authClient } from "@/api/auth-client"
 import { Button } from "@/components/ui/button"
+import { LoadingSwap } from "@/components/ui/loading-swap"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -68,7 +69,7 @@ export function LoginPage() {
             )}
 
             <Button type="submit" disabled={loading} className="w-full">
-              {loading ? "Signing in..." : "Sign in"}
+              <LoadingSwap isLoading={loading}>Sign in</LoadingSwap>
             </Button>
           </form>
         </CardContent>
