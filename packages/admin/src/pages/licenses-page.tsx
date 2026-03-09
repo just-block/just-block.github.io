@@ -27,7 +27,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { LoadingSwap } from "@/components/ui/loading-swap"
 
 type License = {
-  id: number
+  id: string
   licenseKey: string
   status: "available" | "active" | "disabled"
   createdAt: string | null
