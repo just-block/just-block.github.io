@@ -28,3 +28,6 @@
 
 **Is it free?**
 <br>The first 3 websites are free. For unlimited blocking, it's a one-time purchase of $2.99 - no subscriptions.
+
+**Is it open source?**
+<br>Only the landing page is open source. The extension and backend code are kept private since JustBlock has paid users. The repo is published using [git-filter](https://github.com/kubk/git-filter/) to share only the public parts.
