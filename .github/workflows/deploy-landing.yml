@@ -4,7 +4,7 @@
 # 3. Name: ENABLE_LANDING_DEPLOY, Value: true
 # 4. Save — the workflow will run on next push to packages/landing/** or manual dispatch
 
-name: Deploy Landing to GitHub Pages
+name: Landing
 
 on:
   push:
