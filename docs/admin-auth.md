@@ -7,9 +7,18 @@
 
 ## Seed a new admin user
 
+Local (uses `.dev.vars`):
+
 ```bash
 cd packages/api
-DATABASE_URL="..." npx tsx scripts/seed-admin.ts <email> <password> [name]
+npx dotenvx run -f .dev.vars -- npx tsx scripts/seed-admin.ts <email> <password> [name]
+```
+
+Production (uses encrypted `.env.production` via dotenvx):
+
+```bash
+cd packages/api
+npx dotenvx run -f .env.production -- npx tsx scripts/seed-admin.ts <email> <password> [name]
 ```
 
 ## Scripts
