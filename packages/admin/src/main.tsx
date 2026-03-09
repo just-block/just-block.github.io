@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client"
 import { QueryClientProvider } from "@tanstack/react-query"
 
 import "./index.css"
-import App from "./App.tsx"
+import { App } from "./app.tsx"
 import { ThemeProvider } from "@/components/theme-provider.tsx"
 import { TooltipProvider } from "@/components/ui/tooltip.tsx"
 import { queryClient } from "@/api/query-client.ts"

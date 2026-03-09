@@ -15,7 +15,21 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb"
 
-function AdminLayout() {
+export function App() {
+  const { data: session, isPending } = authClient.useSession()
+
+  if (isPending) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <div className="text-sm text-muted-foreground">Loading...</div>
+      </div>
+    )
+  }
+
+  if (!session) {
+    return <LoginPage />
+  }
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -38,23 +52,3 @@ function AdminLayout() {
     </SidebarProvider>
   )
 }
-
-export function App() {
-  const { data: session, isPending } = authClient.useSession()
-
-  if (isPending) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <div className="text-sm text-muted-foreground">Loading...</div>
-      </div>
-    )
-  }
-
-  if (!session) {
-    return <LoginPage />
-  }
-
-  return <AdminLayout />
-}
-
-export default App
