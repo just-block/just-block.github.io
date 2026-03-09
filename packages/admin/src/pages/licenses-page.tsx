@@ -22,17 +22,11 @@ import {
   DialogClose,
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
-import { Plus, Trash2, Copy, Check, RefreshCw } from "lucide-react"
+import { Plus, Trash2, RefreshCw } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { LoadingSwap } from "@/components/ui/loading-swap"
-
-type License = {
-  id: string
-  licenseKey: string
-  status: "available" | "active" | "disabled"
-  createdAt: string | null
-  activatedAt: string | null
-}
+import { CopyButton } from "@/components/copy-button"
+import type { License } from "api"
 
 function statusVariant(status: License["status"]) {
   switch (status) {
@@ -45,47 +39,21 @@ function statusVariant(status: License["status"]) {
   }
 }
 
-function generateLicenseKey() {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
-  const segments = 4
-  const segmentLength = 5
-  const parts: string[] = []
-  for (let i = 0; i < segments; i++) {
-    let part = ""
-    for (let j = 0; j < segmentLength; j++) {
-      part += chars[Math.floor(Math.random() * chars.length)]
-    }
-    parts.push(part)
-  }
-  return parts.join("-")
-}
-
-function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon-xs"
-      onClick={() => {
-        navigator.clipboard.writeText(text)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 1500)
-      }}
-    >
-      {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
-    </Button>
-  )
-}
-
 export function LicensesPage() {
   const [createForm, setCreateForm] = useState<{
-    key: string
-    error: string
+    key: string | null
   } | null>(null)
 
   const { data: licenses = [], isLoading: loading } = useQuery(
     api.list.queryOptions(),
+  )
+
+  const generateKeyMutation = useMutation(
+    api.generateKey.mutationOptions({
+      onSuccess: (data) => {
+        setCreateForm({ key: data.licenseKey })
+      },
+    }),
   )
 
   const createMutation = useMutation(
@@ -93,13 +61,6 @@ export function LicensesPage() {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: api.list.queryKey() })
         setCreateForm(null)
-      },
-      onError: (e) => {
-        setCreateForm((prev) =>
-          prev
-            ? { ...prev, error: e instanceof Error ? e.message : "Failed to create" }
-            : null,
-        )
       },
     }),
   )
@@ -112,10 +73,16 @@ export function LicensesPage() {
     }),
   )
 
+  const isGenerating = generateKeyMutation.isPending
+
+  function handleOpenDialog() {
+    setCreateForm({ key: null })
+    generateKeyMutation.mutate()
+  }
+
   function handleCreate() {
-    if (!createForm?.key.trim()) return
-    setCreateForm((prev) => (prev ? { ...prev, error: "" } : null))
-    createMutation.mutate({ licenseKey: createForm.key.trim() })
+    if (!createForm?.key) return
+    createMutation.mutate({ licenseKey: createForm.key })
   }
 
   function handleDeactivate(licenseKey: string) {
@@ -129,9 +96,7 @@ export function LicensesPage() {
         <div className="flex gap-2">
           <Button
             size="sm"
-            onClick={() =>
-              setCreateForm({ key: generateLicenseKey(), error: "" })
-            }
+            onClick={() => handleOpenDialog()}
           >
             <Plus className="size-3.5" />
             Create License
@@ -172,8 +137,11 @@ export function LicensesPage() {
             ) : (
               licenses.map((license) => (
                 <TableRow key={license.id}>
-                  <TableCell className="font-mono text-xs text-muted-foreground">
-                    {license.id}
+                  <TableCell>
+                    <div className="flex items-center gap-1">
+                      <span className="font-mono text-xs text-muted-foreground">{license.id.slice(-8)}</span>
+                      <CopyButton text={license.id} />
+                    </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1">
@@ -227,36 +195,31 @@ export function LicensesPage() {
                 <Input
                   id="license-key"
                   value={createForm?.key ?? ""}
-                  onChange={(e) =>
-                    setCreateForm((prev) =>
-                      prev ? { ...prev, key: e.target.value } : null,
-                    )
-                  }
+                  disabled
                   className="font-mono"
                   placeholder="XXXXX-XXXXX-XXXXX-XXXXX"
                 />
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() =>
-                    setCreateForm((prev) =>
-                      prev ? { ...prev, key: generateLicenseKey() } : null,
-                    )
-                  }
+                  disabled={isGenerating}
+                  onClick={() => generateKeyMutation.mutate()}
                 >
-                  <RefreshCw className="size-4" />
+                  <RefreshCw className={`size-4 ${isGenerating ? "animate-spin" : ""}`} />
                 </Button>
               </div>
             </div>
-            {createForm?.error && (
-              <p className="text-sm text-destructive">{createForm.error}</p>
+            {createMutation.error && (
+              <p className="text-sm text-destructive">
+                {createMutation.error instanceof Error ? createMutation.error.message : "Failed to create"}
+              </p>
             )}
           </div>
           <DialogFooter>
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button onClick={handleCreate} disabled={createMutation.isPending || !createForm?.key.trim()}>
+            <Button onClick={handleCreate} disabled={createMutation.isPending || isGenerating || !createForm?.key}>
               <LoadingSwap isLoading={createMutation.isPending}>Create</LoadingSwap>
             </Button>
           </DialogFooter>
