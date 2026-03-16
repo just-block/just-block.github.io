@@ -195,7 +195,7 @@ export function LicensesPage() {
                 <Input
                   id="license-key"
                   value={createForm?.key ?? ""}
-                  disabled
+                  onChange={(e) => setCreateForm(f => f ? { ...f, key: e.target.value } : f)}
                   className="font-mono"
                   placeholder="XXXXX-XXXXX-XXXXX-XXXXX"
                 />
