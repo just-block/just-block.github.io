@@ -2,7 +2,6 @@ import Image from "next/image";
 import first from "@/app/en/img/1.png";
 import second from "@/app/en/img/2.png";
 import third from "@/app/en/img/3.png";
-import { StepNumber } from "@/components/step-number";
 
 export default function Page() {
   return (
@@ -16,12 +15,9 @@ export default function Page() {
       <div className="w-full max-w-2xl space-y-20">
         {/* Step 1 */}
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-4 mb-6">
-            <StepNumber number={1} />
-            <h2 className="text-xl md:text-2xl font-semibold">
-              Open the extension list
-            </h2>
-          </div>
+          <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
+            1. Open the extension list
+          </h2>
           <Image
             loading="lazy"
             src={first}
@@ -32,12 +28,9 @@ export default function Page() {
 
         {/* Step 2 */}
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-4 mb-6">
-            <StepNumber number={2} />
-            <h2 className="text-xl md:text-2xl font-semibold">
-              Pin the extension
-            </h2>
-          </div>
+          <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
+            2. Pin the extension
+          </h2>
           <Image
             loading="lazy"
             src={second}
@@ -48,13 +41,10 @@ export default function Page() {
 
         {/* Step 3 */}
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-4 mb-6">
-            <StepNumber number={3} />
-            <h2 className="text-xl md:text-2xl font-semibold text-center">
-              Go to a website you'd like to block, open extension and click
-              "Block current website"
-            </h2>
-          </div>
+          <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
+            3. Go to a website you'd like to block, open extension and click
+            "Block current website"
+          </h2>
           <Image
             loading="lazy"
             src={third}
