@@ -63,13 +63,6 @@ export default function Page() {
           />
         </div>
       </div>
-
-      <p className="text-lg mt-16 mb-8">
-        Want unlimited blocks?{" "}
-        <a href="/en/upgrade" className="underline text-indigo-600">
-          Learn how to upgrade
-        </a>
-      </p>
     </div>
   );
 }
