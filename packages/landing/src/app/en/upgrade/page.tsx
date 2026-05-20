@@ -46,7 +46,7 @@ export default function Page() {
             You'll receive a license key via email. It looks like this:
           </p>
           <span className="bg-white px-6 py-3 rounded-xl text-sm md:text-base font-mono border border-gray-200 shadow-sm mb-3 select-none">
-            38b1460a-5104-4067-a91d-77b872934d51
+            JB7KQ-HN4M2-W8PDT-9X3RA
           </span>
           <p className="text-sm text-gray-500">
             Keep your license key private — don't share it with anyone.

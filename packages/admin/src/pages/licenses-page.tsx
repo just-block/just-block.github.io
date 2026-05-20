@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/table"
 import {
   Dialog,
+  DialogDescription,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -28,13 +29,13 @@ import { LoadingSwap } from "@/components/ui/loading-swap"
 import { CopyButton } from "@/components/copy-button"
 import type { License } from "api"
 
-function statusVariant(status: License["status"]) {
+function statusVariant(status: string) {
   switch (status) {
     case "available":
       return "outline" as const
     case "active":
       return "default" as const
-    case "disabled":
+    default:
       return "destructive" as const
   }
 }
@@ -43,9 +44,10 @@ export function LicensesPage() {
   const [createForm, setCreateForm] = useState<{
     key: string | null
   } | null>(null)
+  const [revokeTarget, setRevokeTarget] = useState<License | null>(null)
 
   const { data: licenses = [], isLoading: loading } = useQuery(
-    api.list.queryOptions(),
+    api.list.queryOptions()
   )
 
   const generateKeyMutation = useMutation(
@@ -53,7 +55,7 @@ export function LicensesPage() {
       onSuccess: (data) => {
         setCreateForm({ key: data.licenseKey })
       },
-    }),
+    })
   )
 
   const createMutation = useMutation(
@@ -62,15 +64,16 @@ export function LicensesPage() {
         queryClient.invalidateQueries({ queryKey: api.list.queryKey() })
         setCreateForm(null)
       },
-    }),
+    })
   )
 
-  const deactivateMutation = useMutation(
-    api.deactivate.mutationOptions({
+  const revokeMutation = useMutation(
+    api.revoke.mutationOptions({
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: api.list.queryKey() })
+        setRevokeTarget(null)
       },
-    }),
+    })
   )
 
   const isGenerating = generateKeyMutation.isPending
@@ -85,8 +88,14 @@ export function LicensesPage() {
     createMutation.mutate({ licenseKey: createForm.key })
   }
 
-  function handleDeactivate(licenseKey: string) {
-    deactivateMutation.mutate({ licenseKey })
+  function handleRevoke(license: License) {
+    revokeMutation.reset()
+    setRevokeTarget(license)
+  }
+
+  function handleConfirmRevoke() {
+    if (!revokeTarget) return
+    revokeMutation.mutate({ id: revokeTarget.id })
   }
 
   return (
@@ -94,10 +103,7 @@ export function LicensesPage() {
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Licenses</h2>
         <div className="flex gap-2">
-          <Button
-            size="sm"
-            onClick={() => handleOpenDialog()}
-          >
+          <Button size="sm" onClick={() => handleOpenDialog()}>
             <Plus className="size-3.5" />
             Create License
           </Button>
@@ -120,17 +126,30 @@ export function LicensesPage() {
             {loading ? (
               Array.from({ length: 3 }).map((_, i) => (
                 <TableRow key={i}>
-                  <TableCell><Skeleton className="h-4 w-8" /></TableCell>
-                  <TableCell><Skeleton className="h-4 w-48" /></TableCell>
-                  <TableCell><Skeleton className="h-4 w-16" /></TableCell>
-                  <TableCell><Skeleton className="h-4 w-32" /></TableCell>
-                  <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-8" />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-48" />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-16" />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-32" />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-32" />
+                  </TableCell>
                   <TableCell />
                 </TableRow>
               ))
             ) : licenses.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="text-center text-muted-foreground py-8">
+                <TableCell
+                  colSpan={6}
+                  className="py-8 text-center text-muted-foreground"
+                >
                   No licenses found
                 </TableCell>
               </TableRow>
@@ -139,14 +158,28 @@ export function LicensesPage() {
                 <TableRow key={license.id}>
                   <TableCell>
                     <div className="flex items-center gap-1">
-                      <span className="font-mono text-xs text-muted-foreground">{license.id.slice(-8)}</span>
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {license.id.slice(-8)}
+                      </span>
                       <CopyButton text={license.id} />
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center gap-1">
-                      <span className="font-mono text-sm">{license.licenseKey}</span>
-                      <CopyButton text={license.licenseKey} />
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-1">
+                        <span className="font-mono text-sm">
+                          {license.licenseKey}
+                        </span>
+                        <CopyButton text={license.licenseKey} />
+                      </div>
+                      {license.customerEmail && (
+                        <div className="flex items-center gap-1">
+                          <span className="text-sm text-muted-foreground">
+                            {license.customerEmail}
+                          </span>
+                          <CopyButton text={license.customerEmail} />
+                        </div>
+                      )}
                     </div>
                   </TableCell>
                   <TableCell>
@@ -165,12 +198,15 @@ export function LicensesPage() {
                       : "-"}
                   </TableCell>
                   <TableCell>
-                    {license.status !== "disabled" && (
+                    {license.status !== "revoked" && (
                       <Button
                         variant="destructive"
                         size="icon-xs"
-                        disabled={deactivateMutation.isPending && deactivateMutation.variables?.licenseKey === license.licenseKey}
-                        onClick={() => handleDeactivate(license.licenseKey)}
+                        disabled={
+                          revokeMutation.isPending &&
+                          revokeMutation.variables?.id === license.id
+                        }
+                        onClick={() => handleRevoke(license)}
                       >
                         <Trash2 className="size-3" />
                       </Button>
@@ -183,7 +219,10 @@ export function LicensesPage() {
         </Table>
       </div>
 
-      <Dialog open={createForm !== null} onOpenChange={(open) => !open && setCreateForm(null)}>
+      <Dialog
+        open={createForm !== null}
+        onOpenChange={(open) => !open && setCreateForm(null)}
+      >
         <DialogContent onOpenAutoFocus={(e) => e.preventDefault()}>
           <DialogHeader>
             <DialogTitle>Create License</DialogTitle>
@@ -195,7 +234,11 @@ export function LicensesPage() {
                 <Input
                   id="license-key"
                   value={createForm?.key ?? ""}
-                  onChange={(e) => setCreateForm(f => f ? { ...f, key: e.target.value } : f)}
+                  onChange={(e) =>
+                    setCreateForm((f) =>
+                      f ? { ...f, key: e.target.value } : f
+                    )
+                  }
                   className="font-mono"
                   placeholder="XXXXX-XXXXX-XXXXX-XXXXX"
                 />
@@ -205,13 +248,17 @@ export function LicensesPage() {
                   disabled={isGenerating}
                   onClick={() => generateKeyMutation.mutate()}
                 >
-                  <RefreshCw className={`size-4 ${isGenerating ? "animate-spin" : ""}`} />
+                  <RefreshCw
+                    className={`size-4 ${isGenerating ? "animate-spin" : ""}`}
+                  />
                 </Button>
               </div>
             </div>
             {createMutation.error && (
               <p className="text-sm text-destructive">
-                {createMutation.error instanceof Error ? createMutation.error.message : "Failed to create"}
+                {createMutation.error instanceof Error
+                  ? createMutation.error.message
+                  : "Failed to create"}
               </p>
             )}
           </div>
@@ -219,8 +266,61 @@ export function LicensesPage() {
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button onClick={handleCreate} disabled={createMutation.isPending || isGenerating || !createForm?.key}>
-              <LoadingSwap isLoading={createMutation.isPending}>Create</LoadingSwap>
+            <Button
+              onClick={handleCreate}
+              disabled={
+                createMutation.isPending || isGenerating || !createForm?.key
+              }
+            >
+              <LoadingSwap isLoading={createMutation.isPending}>
+                Create
+              </LoadingSwap>
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={revokeTarget !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setRevokeTarget(null)
+            revokeMutation.reset()
+          }
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Revoke license?</DialogTitle>
+            <DialogDescription>
+              This disables{" "}
+              <span className="font-mono text-foreground">
+                {revokeTarget?.licenseKey}
+              </span>{" "}
+              and prevents future activation or validation
+            </DialogDescription>
+          </DialogHeader>
+          {revokeMutation.error && (
+            <p className="text-sm text-destructive">
+              {revokeMutation.error instanceof Error
+                ? revokeMutation.error.message
+                : "Failed to revoke license"}
+            </p>
+          )}
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button variant="outline" disabled={revokeMutation.isPending}>
+                Cancel
+              </Button>
+            </DialogClose>
+            <Button
+              variant="destructive"
+              onClick={handleConfirmRevoke}
+              disabled={revokeMutation.isPending}
+            >
+              <LoadingSwap isLoading={revokeMutation.isPending}>
+                Revoke
+              </LoadingSwap>
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -41,10 +41,16 @@ npm run cf-typegen    # regenerate worker types
 ### License API (tRPC at `/trpc`)
 
 **Public:**
-- `POST /trpc/checkLicense` — body: `{"licenseKey":"..."}` — returns `{valid: true/false}`, activates if available
+- `POST /trpc/checkLicense` — body: `{"licenseKey":"...","instanceId":"uuid"}` — returns `{valid: true/false}`, activates if available
 - `GET /trpc/checkAvailable?input={"licenseKey":"..."}` — returns `{available: true/false}`
 
 **Admin (requires session cookie):**
 - `GET /trpc/list` — list all licenses
 - `POST /trpc/create` — body: `{"licenseKey":"..."}` — create license
-- `POST /trpc/deactivate` — body: `{"licenseKey":"..."}` — disable license
+- `POST /trpc/revoke` — body: `{"id":"uuid"}` — revoke license
+
+### Stripe webhook
+
+- `POST /stripe/webhook` — Stripe webhook endpoint for `checkout.session.completed` and `checkout.session.async_payment_succeeded`
+- Required API env vars: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID`
+- Public extension build env: `VITE_STRIPE_PAYMENT_LINK_URL`
