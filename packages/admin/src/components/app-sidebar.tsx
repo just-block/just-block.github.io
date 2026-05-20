@@ -1,4 +1,6 @@
-import { KeyRound, LogOut, ChevronsUpDown } from "lucide-react"
+import { CreditCard, KeyRound, LogOut, ChevronsUpDown } from "lucide-react"
+import { Link, useLocation } from "wouter"
+
 import { authClient } from "@/api/auth-client"
 
 import {
@@ -19,6 +21,10 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
+  const [location] = useLocation()
+  const licensesActive = location === "/" || location === "/licenses"
+  const purchasesActive = location === "/purchases"
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -27,7 +33,11 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton size="lg" className="cursor-pointer">
-                  <img src="/logo.png" alt="Just Block" className="size-8 rounded-lg" />
+                  <img
+                    src="/logo.png"
+                    alt="Just Block"
+                    className="size-8 rounded-lg"
+                  />
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-medium">Just Block</span>
                     <span className="truncate text-xs">Admin</span>
@@ -55,9 +65,27 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroupLabel>Management</SidebarGroupLabel>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton isActive tooltip="Licenses">
-                <KeyRound />
-                <span>Licenses</span>
+              <SidebarMenuButton
+                asChild
+                isActive={licensesActive}
+                tooltip="Licenses"
+              >
+                <Link href="/licenses">
+                  <KeyRound />
+                  <span>Licenses</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={purchasesActive}
+                tooltip="Purchases"
+              >
+                <Link href="/purchases">
+                  <CreditCard />
+                  <span>Purchases</span>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
