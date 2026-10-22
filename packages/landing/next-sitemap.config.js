@@ -17,6 +17,13 @@ module.exports = {
       priority: 0.7,
     })
 
+    result.push({
+      loc: '/terms-of-service',
+      lastmod: new Date().toISOString(),
+      changefreq: 'monthly',
+      priority: 0.7,
+    })
+
     return result
   }
 }

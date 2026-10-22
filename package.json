@@ -2,7 +2,7 @@
   "name": "just-block",
   "private": true,
   "scripts": {
-    "dev": "concurrently -n landing,api,admin,extension -c blue,green,magenta,cyan \"pnpm run -F=landing dev\" \"pnpm run -F=api dev\" \"pnpm run -F=admin dev\" \"pnpm run -F=extension dev\"",
+    "dev": "concurrently -n landing,api,extension -c blue,green,cyan \"pnpm run -F=landing dev\" \"pnpm run -F=api dev\" \"pnpm run -F=extension dev\"",
     "typecheck": "pnpm --recursive --parallel --filter='./packages/*' run typecheck",
     "prettier:fix": "git ls-files -mo --exclude-standard -- './packages' | grep -E '\\.(ts|tsx|mts|json)$' | xargs -I {} prettier --write {}",
     "prettier:fix:full": "prettier --write \"./packages/**/*.+(ts|tsx|mts|json)\"",

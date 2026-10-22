@@ -10,6 +10,7 @@ const footerLinks = {
     { label: "How to block websites on Chrome", href: "/en/blog/how-to-block-websites-on-chrome" },
     { label: "How to use", href: "/en/welcome" },
     { label: "Privacy Policy", href: "/privacy-policy.html" },
+    { label: "Terms of Service", href: "/terms-of-service.html" },
   ],
 };
 
@@ -56,9 +57,9 @@ export const Footer = () => {
               </h3>
               <a
                 href={`mailto:${supportEmail}`}
-                className="text-[15px] text-amber-950/50 hover:text-amber-900 transition-colors duration-200 break-all"
+                className="text-[15px] text-amber-950/50 hover:text-amber-900 transition-colors duration-200"
               >
-                {supportEmail}
+                Email
               </a>
             </div>
           </div>
@@ -66,7 +67,7 @@ export const Footer = () => {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-amber-200/40 text-center text-[13px] text-amber-950/35">
-          &copy; {new Date().getFullYear()} JustBlock. All rights reserved.
+          &copy; {new Date().getFullYear()} BD1 LLC. All rights reserved.
         </div>
       </div>
     </footer>
