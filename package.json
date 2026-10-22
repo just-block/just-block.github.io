@@ -11,6 +11,6 @@
   "packageManager": "pnpm@9.15.0",
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "git-filter": "2.4.1"
+    "git-filter": "2.5.0"
   }
 }

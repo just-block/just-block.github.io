@@ -12,8 +12,8 @@ importers:
         specifier: ^8.2.2
         version: 8.2.2
       git-filter:
-        specifier: 2.4.1
-        version: 2.4.1
+        specifier: 2.5.0
+        version: 2.5.0
 
   packages/api:
     dependencies:
@@ -2930,8 +2930,9 @@ packages:
     resolution: {integrity: sha512-L5bGsVkxJbJgdnwyuheIunkGatUF/zssUoxxjACCseZYAVbaqdh9Tsmmlkl8vYan09H7sbvKt4pS8GqKLBrEzA==}
     hasBin: true
 
-  git-filter@2.4.1:
-    resolution: {integrity: sha512-rHeRPmlCXpN/07haqKiHxa5L8NMk5nIVadnXIUbOIWbr2tfUuQ7TLd3JmMRSsQ2QrZkhqmh8uVfD7z9es5w8Jg==}
+  git-filter@2.5.0:
+    resolution: {integrity: sha512-J2nLMpin6JW92O8tHoE08vu/8DQoO1QNXcyBVra9DMHurExG2uzd1TC4wWzdMzJw/Q0dZ/5mmB4ZaqxFNiQGcQ==}
+    engines: {node: '>=24'}
     hasBin: true
 
   glob-parent@5.1.2:
@@ -3033,6 +3034,10 @@ packages:
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
+    engines: {node: '>= 4'}
+
+  ignore@7.0.13:
+    resolution: {integrity: sha512-2E8Q6rh+1RRSq/YdaGsNfXsEZy9FVqv6BSSrkmZJP7BnaoPnRfKL+YaofPvP+5rzdk144qSm6i4+hvPgUcbV4Q==}
     engines: {node: '>= 4'}
 
   import-fresh@3.3.1:
@@ -7386,10 +7391,10 @@ snapshots:
       pathe: 2.0.3
     optional: true
 
-  git-filter@2.4.1:
+  git-filter@2.5.0:
     dependencies:
       commander: 8.3.0
-      ignore: 5.3.2
+      ignore: 7.0.13
       write-file-atomic: 3.0.3
 
   glob-parent@5.1.2:
@@ -7491,6 +7496,8 @@ snapshots:
     optional: true
 
   ignore@5.3.2: {}
+
+  ignore@7.0.13: {}
 
   import-fresh@3.3.1:
     dependencies:
