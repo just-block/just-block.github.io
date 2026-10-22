@@ -11,24 +11,24 @@ Local (uses `.dev.vars`):
 
 ```bash
 cd packages/api
-npx dotenvx run -f .dev.vars -- npx tsx scripts/seed-admin.ts <email> <password> [name]
+pnpm exec dotenvx run -f .dev.vars -- tsx scripts/seed-admin.ts <email> <password> [name]
 ```
 
 Production (uses encrypted `.env.production` via dotenvx):
 
 ```bash
 cd packages/api
-npx dotenvx run -f .env.production -- npx tsx scripts/seed-admin.ts <email> <password> [name]
+pnpm exec dotenvx run -f .env.production -- tsx scripts/seed-admin.ts <email> <password> [name]
 ```
 
 ## Scripts
 
 ```bash
-npm run dev           # start local worker
-npm run db:generate   # generate migration after schema changes
-npm run db:migrate    # apply migrations
-npm run deploy        # deploy to Cloudflare
-npm run cf-typegen    # regenerate worker types
+pnpm run dev           # start local worker
+pnpm run db:generate   # generate migration after schema changes
+pnpm run db:migrate    # apply migrations
+pnpm run deploy        # deploy to Cloudflare
+pnpm run cf-typegen    # regenerate worker types
 ```
 
 ## Endpoints

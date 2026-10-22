@@ -6,7 +6,7 @@
     "dev": "next dev --port 11052",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "build-and-serve": "next build && npx serve out",
+    "build-and-serve": "next build && serve out",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc -b --noEmit"
@@ -23,7 +23,7 @@
     "next-sitemap": "^4.2.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "shared": "^0.0.0",
+    "shared": "workspace:*",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },

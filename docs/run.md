@@ -5,7 +5,7 @@
 From the repo root:
 
 ```bash
-npm install
+pnpm install
 ```
 
 This installs dependencies for all packages.
@@ -13,7 +13,7 @@ This installs dependencies for all packages.
 ## Landing page
 
 ```bash
-npm run dev -w landing
+pnpm run -F=landing dev
 ```
 
 Opens at http://localhost:11052.
@@ -21,7 +21,7 @@ Opens at http://localhost:11052.
 To preview the production static build:
 
 ```bash
-npm run build-and-serve -w landing
+pnpm run -F=landing build-and-serve
 ```
 
 ## Extension
@@ -29,7 +29,7 @@ npm run build-and-serve -w landing
 ### Dev mode (browser preview, no Chrome APIs)
 
 ```bash
-npm run dev -w extension
+pnpm run -F=extension dev
 ```
 
 Opens at http://localhost:10274. Useful for UI work — Chrome extension APIs won't be available.
@@ -39,7 +39,7 @@ Opens at http://localhost:10274. Useful for UI work — Chrome extension APIs wo
 1. Build the extension:
 
 ```bash
-npm run build:dev -w extension
+pnpm run -F=extension build:dev
 ```
 
 2. Open Chrome and go to `chrome://extensions`
