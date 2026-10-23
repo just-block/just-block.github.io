@@ -10,24 +10,9 @@ type FaqItem = {
 
 export function Faq({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(null);
-  // TEMP visual tuner
-  const [tuneMaxWidth, setTuneMaxWidth] = useState(672);
 
   return (
-    <section className="w-full mx-auto" style={{ maxWidth: tuneMaxWidth }}>
-      {import.meta.env.DEV && (
-        <label className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-lg border border-black/10 bg-white px-3 py-2 text-sm shadow-lg">
-          FAQ max-width (px)
-          <input
-            type="number"
-            step={1}
-            min={200}
-            value={tuneMaxWidth}
-            onChange={(e) => setTuneMaxWidth(Number(e.target.value))}
-            className="w-20 rounded border border-black/20 px-1.5 py-0.5"
-          />
-        </label>
-      )}
+    <section className="w-full">
       <h2 className="text-2xl font-bold mb-6 text-center" id="faq">
         FAQ
       </h2>

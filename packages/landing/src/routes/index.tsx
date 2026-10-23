@@ -36,7 +36,7 @@ function Page() {
         </section>
       </div>
 
-      <div className="flex flex-col items-center p-8 rounded-lg max-w-3xl">
+      <div className="flex flex-col w-full max-w-[544px] p-8">
         <VideoTutorial id="demo" />
         <div className="w-full mt-6 mb-8">
           <KeyFeatures />
