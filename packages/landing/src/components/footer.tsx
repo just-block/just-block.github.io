@@ -36,7 +36,7 @@ export const Footer = () => {
               aria-label={column.title}
               className="flex flex-col gap-3.5"
             >
-              <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-ink-subtle">
+              <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-ink">
                 {column.title}
               </span>
               {column.links.map((link) => (
