@@ -12,8 +12,8 @@ importers:
         specifier: ^8.2.2
         version: 8.2.2
       git-filter:
-        specifier: 2.5.0
-        version: 2.5.0
+        specifier: 2.6.0
+        version: 2.6.0
 
   packages/api:
     dependencies:
@@ -3491,8 +3491,8 @@ packages:
     resolution: {integrity: sha512-L5bGsVkxJbJgdnwyuheIunkGatUF/zssUoxxjACCseZYAVbaqdh9Tsmmlkl8vYan09H7sbvKt4pS8GqKLBrEzA==}
     hasBin: true
 
-  git-filter@2.5.0:
-    resolution: {integrity: sha512-J2nLMpin6JW92O8tHoE08vu/8DQoO1QNXcyBVra9DMHurExG2uzd1TC4wWzdMzJw/Q0dZ/5mmB4ZaqxFNiQGcQ==}
+  git-filter@2.6.0:
+    resolution: {integrity: sha512-ZmcrzJzqruE38ocvSrHQwB8lkNEEhGJxSQFRla+sxukEm5YCTdeHzNAC66OcCQK4SxI1EycDN3rW/t0khValKA==}
     engines: {node: '>=24'}
     hasBin: true
 
@@ -8380,7 +8380,7 @@ snapshots:
       pathe: 2.0.3
     optional: true
 
-  git-filter@2.5.0:
+  git-filter@2.6.0:
     dependencies:
       commander: 8.3.0
       ignore: 7.0.13
