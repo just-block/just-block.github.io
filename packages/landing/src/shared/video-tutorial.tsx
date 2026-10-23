@@ -19,7 +19,8 @@ export const VideoTutorial = ({ id }: { id?: string }) => {
           borderRadius: 12,
         }}
       >
-        <source src="https://general-bucket.memocard.org/just-block.mp4" type="video/mp4" />
+        <source src="https://general-bucket.memocard.org/just-block.av1.mp4" type='video/mp4; codecs="av01.0.09M.10"' />
+        <source src="https://general-bucket.memocard.org/just-block.h264.mp4" type="video/mp4" />
       </video>
     </div>
   );
