@@ -6,7 +6,7 @@
     "typecheck": "pnpm --recursive --parallel --filter='./packages/*' run typecheck",
     "prettier:fix": "git ls-files -mo --exclude-standard -- './packages' | grep -E '\\.(ts|tsx|mts|json)$' | xargs -I {} prettier --write {}",
     "prettier:fix:full": "prettier --write \"./packages/**/*.+(ts|tsx|mts|json)\"",
-    "filter-public-code": "git-filter git-filter.config.json"
+    "export-public-code": "git-filter git-filter.config.json"
   },
   "packageManager": "pnpm@9.15.0",
   "devDependencies": {
