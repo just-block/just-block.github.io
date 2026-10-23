@@ -120,6 +120,10 @@
   * {
     @apply border-border;
   }
+  /* Overscroll (rubber-band) areas show the html background, so match the header and footer */
+  html {
+    background-color: #faf6eb;
+  }
   body {
     @apply bg-background text-foreground;
   }
