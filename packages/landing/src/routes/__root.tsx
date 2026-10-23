@@ -76,7 +76,7 @@ function RootDocument({ children }: { children: ReactNode }) {
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <Header />
-        {children}
+        <div className="flex-1 flex flex-col bg-white">{children}</div>
         <Footer />
         {!isStaticNotFoundPage && <Scripts />}
       </body>

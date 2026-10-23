@@ -8,7 +8,7 @@ export const PageHero = ({ title, children }: { title: ReactNode; children?: Rea
           {title}
         </h1>
         {children && (
-          <p className="text-[20px] leading-[1.5] text-ink-subtle max-w-[600px]">
+          <p className="text-[20px] leading-[1.5] text-ink-subtle max-w-[600px] text-pretty">
             {children}
           </p>
         )}

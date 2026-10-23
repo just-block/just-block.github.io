@@ -40,12 +40,12 @@
 }
 
 @layer base {
-  /* Overscroll (rubber-band) areas show the html background, so match the header */
+  /* Overscroll (rubber-band) areas show the html background, so match the header.
+     Safari blends the body background over it, so body stays transparent */
   html {
     background-color: var(--color-cream);
   }
   body {
-    background-color: white;
     color: var(--color-ink);
   }
 }

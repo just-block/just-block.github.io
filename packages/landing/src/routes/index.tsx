@@ -126,7 +126,7 @@ function Page() {
             question: "How can I contact support?",
             answer: (
               <>
-                Email us at{" "}
+                Email at{" "}
                 <a href={`mailto:${supportEmail}`} className="underline">
                   {supportEmail}
                 </a>

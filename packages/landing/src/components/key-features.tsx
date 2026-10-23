@@ -55,8 +55,7 @@ const BlockButtonBrowser = () => (
       {/* The cursor sits inside the pressed element so it moves with the button */}
       <div className="relative feature-active:animate-[press_0.3s_ease-out]">
         <div className="h-[38px] px-4 rounded-[10px] bg-brand text-white text-[13px] font-bold grid items-center shadow-[0_8px_16px_-8px_rgb(79_70_229/0.7)] transition-[background-color,box-shadow] duration-200 feature-active:delay-100 feature-active:bg-ink-strong feature-active:shadow-none">
-          <span className="[grid-area:1/1] flex items-center gap-2 transition-opacity duration-200 feature-active:delay-100 feature-active:opacity-0">
-            <span className="relative -top-px size-3 before:absolute before:inset-x-0 before:top-1/2 before:h-[3px] before:-translate-y-1/2 before:rotate-45 before:rounded-full before:bg-current after:absolute after:inset-x-0 after:top-1/2 after:h-[3px] after:-translate-y-1/2 after:-rotate-45 after:rounded-full after:bg-current" />
+          <span className="[grid-area:1/1] text-center transition-opacity duration-200 feature-active:delay-100 feature-active:opacity-0">
             Block this site
           </span>
           <span className="[grid-area:1/1] text-center opacity-0 transition-opacity duration-200 feature-active:delay-100 feature-active:opacity-100">
