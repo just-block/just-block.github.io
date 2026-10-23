@@ -77,7 +77,7 @@ function Page() {
           </h1>
           <a
             href={extensionLink}
-            className="inline-flex items-center gap-3 h-16 pl-[26px] pr-8 max-[520px]:h-14 max-[520px]:pl-5 max-[520px]:pr-6 rounded-2xl bg-brand text-white text-[19px] max-[520px]:text-[17px] font-bold tracking-[-0.01em] shadow-cta hover:bg-[#5850f0] transition-colors duration-150"
+            className="inline-flex items-center gap-3 h-16 pl-[26px] pr-8 max-[520px]:h-14 max-[520px]:pl-5 max-[520px]:pr-6 cta-fx rounded-2xl bg-brand text-white text-[19px] max-[520px]:text-[17px] font-bold tracking-[-0.01em]"
           >
             <ChromeIcon />
             Get Chrome Extension

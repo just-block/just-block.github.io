@@ -76,7 +76,7 @@ export const VideoTutorial = ({ id }: { id?: string }) => {
             <span className="relative self-end pb-[max(16px,4cqw)] text-[max(24px,5.6cqw)] leading-none font-extrabold tracking-[-0.04em] text-ink-strong">
               See how it works
             </span>
-            <span className="relative flex size-[max(48px,12cqw)] items-center justify-center rounded-full bg-ink-strong text-white shadow-lg ring-[max(6px,1.6cqw)] ring-ink-strong/15 transition-transform duration-200 group-hover:scale-105 group-active:scale-95">
+            <span className="relative flex size-[max(48px,12cqw)] items-center justify-center play-fx rounded-full bg-ink-strong text-white transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-active:scale-95 group-active:duration-100 motion-reduce:transition-none">
               <Play className="size-[38%] translate-x-[8%] fill-current" strokeWidth={0} />
             </span>
           </button>
