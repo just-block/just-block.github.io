@@ -49,7 +49,7 @@ function Page() {
           <p className="text-gray-600 mb-4 text-center">
             You'll receive a license key via email. It looks like this:
           </p>
-          <span className="bg-white px-6 py-3 rounded-xl text-sm md:text-base font-mono border border-gray-200 shadow-sm mb-3 select-none">
+          <span className="bg-white px-6 py-3 rounded-xl text-sm md:text-base font-mono border border-gray-200 shadow-xs mb-3 select-none">
             JB7KQ-HN4M2-W8PDT-9X3RA
           </span>
           <p className="text-sm text-gray-500">

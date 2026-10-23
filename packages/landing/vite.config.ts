@@ -1,4 +1,5 @@
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import tailwindcss from "@tailwindcss/vite";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { websiteUrl } from "../api/shared/config.ts";
@@ -42,6 +43,7 @@ export default defineConfig({
         host: websiteUrl,
       },
     }),
+    tailwindcss(),
     viteReact(),
   ],
 });

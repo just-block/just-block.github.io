@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Landing page for JustBlock Chrome extension. TanStack Start (prerendered SSG), Vite, Tailwind v3 + shadcn/ui.
+Landing page for JustBlock Chrome extension. TanStack Start (prerendered SSG), Vite, Tailwind v4 (CSS-first config in `src/styles.css`, no tailwind.config) + shadcn/ui.
 
 ## Commands
 
