@@ -45,6 +45,14 @@
   body {
     color: var(--color-ink);
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
 }
 
 /* Key Features illustrations animate on card hover, or when scrolled into view on touch screens */

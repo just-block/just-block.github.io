@@ -51,8 +51,8 @@ export const Footer = () => {
             </nav>
           ))}
         </div>
-        <div className="text-center text-[14px] text-ink-subtle">
-          &copy; {new Date().getFullYear()} BD1 LLC. All rights reserved.
+        <div className="text-center text-[14px] text-ink-soft">
+          &copy; {new Date().getFullYear()} BD1 LLC. All rights reserved
         </div>
       </div>
     </footer>
