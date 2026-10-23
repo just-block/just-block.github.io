@@ -14,7 +14,7 @@ export const Header = () => {
             <a
               key={route.href}
               href={route.href}
-              className={`${route.isSmHidden ? "hidden sm:block" : ""} px-3.5 py-3 rounded-[10px] text-[13px] font-bold uppercase tracking-[0.08em] text-ink-subtle hover:text-ink hover:bg-cream-strong transition-colors`}
+              className="px-3.5 py-3 rounded-[10px] text-[13px] font-bold uppercase tracking-[0.08em] text-ink-subtle hover:text-ink hover:bg-cream-strong transition-colors"
             >
               {route.label}
             </a>
