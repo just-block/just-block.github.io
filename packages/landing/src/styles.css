@@ -1,131 +1,78 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans:
-    Roboto, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
+  /* Text, darkest to lightest */
+  --color-ink-strong: #17130e;
+  --color-ink: #1f1a14;
+  --color-ink-soft: #3d2f23;
+  --color-ink-muted: #4f3d2e;
+  --color-ink-subtle: #6b5240;
 
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
+  /* Warm surfaces */
+  --color-paper: #fffdf8;
+  --color-cream: #fbf5e9;
+  --color-cream-tint: #fbf0da;
+  --color-cream-strong: #f6e7cf;
+  --color-sand: #f5ebd9;
 
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  /* Borders and dividers */
+  --color-line-soft: #f4ead6;
+  --color-line: #f1e3c8;
+  --color-sand-line: #ead9ba;
+  --color-sand-line-strong: #e3cfac;
 
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  /* Accents */
+  --color-highlight: #fde6a2;
+  --color-brand: #4f46e5;
+  --color-brand-soft: #eceafd;
+  --color-cross: #f07c8c;
+  --color-cross-strong: #d9475d;
 
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-
-  /* Tailwind v3 palette values, so colors match the pre-v4 design */
-  --color-amber-200: #fde68a;
-  --color-amber-300: #fcd34d;
-  --color-amber-900: #78350f;
-  --color-amber-950: #451a03;
-  --color-blue-500: #3b82f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-indigo-600: #4f46e5;
-  --color-indigo-700: #4338ca;
+  --shadow-cta:
+    inset 0 1px 0 rgb(255 255 255 / 0.25),
+    0 10px 24px -8px rgb(79 70 229 / 0.55);
+  --shadow-frame: 0 30px 60px -30px rgb(120 72 20 / 0.35);
+  --shadow-card: 0 14px 28px -18px rgb(120 72 20 / 0.45);
 }
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  /* Overscroll (rubber-band) areas show the html background, so match the header and footer */
+  /* Overscroll (rubber-band) areas show the html background, so match the header */
   html {
-    background-color: #faf6eb;
+    background-color: var(--color-cream);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: white;
+    color: var(--color-ink);
+  }
+}
+
+/* Key Features illustrations animate on card hover, or when scrolled into view on touch screens */
+@custom-variant feature-active {
+  @media (hover: hover) {
+    &:is(:where(.group):hover *) {
+      @slot;
+    }
+  }
+  @media (hover: none) {
+    &:is(:where(.group)[data-in-view] *) {
+      @slot;
+    }
+  }
+}
+
+@keyframes draw {
+  from {
+    scale: 1 0;
+  }
+}
+
+@keyframes press {
+  40% {
+    scale: 0.92;
   }
 }
 

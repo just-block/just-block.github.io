@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { ReactNode } from "react";
+import { SectionTitle } from "@/components/section-title";
 
 type FaqItem = {
   question: string;
@@ -12,28 +13,28 @@ export function Faq({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="w-full">
-      <h2 className="text-2xl font-bold mb-6 text-center" id="faq">
-        FAQ
-      </h2>
-      <div className="divide-y divide-amber-200/60">
+    <section className="max-w-[848px] mx-auto px-6 pt-28 pb-30 flex flex-col items-center gap-10">
+      <SectionTitle id="faq">FAQ</SectionTitle>
+      <div className="w-full rounded-[20px] border border-line bg-white overflow-hidden divide-y divide-line-soft">
         {items.map((item, i) => {
           const isOpen = open === i;
           return (
             <div key={i}>
               <button
+                aria-expanded={isOpen}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer"
+                className="w-full min-h-18 flex items-center justify-between gap-4 px-6 py-5 bg-white text-left text-[18px] font-semibold text-ink"
               >
-                <span className="text-[17px] font-semibold text-black leading-snug">
-                  {item.question}
+                <span>{item.question}</span>
+                <span className="shrink-0 size-8 rounded-full bg-cream-tint text-ink-subtle flex items-center justify-center">
+                  <ChevronDown
+                    className={`size-4 transition-transform duration-300 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                    strokeWidth={2.4}
+                    aria-hidden="true"
+                  />
                 </span>
-                <ChevronDown
-                  className={`w-5 h-5 shrink-0 text-black transition-transform duration-300 ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                  strokeWidth={2}
-                />
               </button>
               <div
                 className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
@@ -41,7 +42,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="pb-5 text-black/60 leading-relaxed">
+                  <p className="px-6 pb-5 text-[16px] leading-[1.6] text-ink-subtle">
                     {item.answer}
                   </p>
                 </div>

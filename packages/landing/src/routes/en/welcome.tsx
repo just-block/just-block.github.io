@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PageHero } from "@/components/page-hero";
+import { Step, StepImage } from "@/components/step";
 import first from "@/assets/img/1.png";
 import second from "@/assets/img/2.png";
 import third from "@/assets/img/3.png";
@@ -9,54 +11,22 @@ export const Route = createFileRoute("/en/welcome")({
 
 function Page() {
   return (
-    <div className="flex flex-col w-full items-center bg-[#faf6eb] py-16 px-4 border-b border-amber-200/60">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="font-bold text-4xl md:text-5xl mb-6">How to use</h1>
-      </div>
-
-      {/* Steps Container */}
-      <div className="w-full max-w-2xl space-y-20">
-        {/* Step 1 */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
-            1. Open the extension list
-          </h2>
-          <img
-            loading="lazy"
-            src={first}
-            width={800}
-            alt="Open extension list"
-          />
-        </div>
-
-        {/* Step 2 */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
-            2. Pin the extension
-          </h2>
-          <img
-            loading="lazy"
-            src={second}
-            width={800}
-            alt="Pin the extension"
-          />
-        </div>
-
-        {/* Step 3 */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
-            3. Go to a website you'd like to block, open extension and click
-            "Block current website"
-          </h2>
-          <img
-            loading="lazy"
-            src={third}
-            width={800}
-            alt="Block a website"
-          />
-        </div>
-      </div>
-    </div>
+    <main>
+      <PageHero title="How to use" />
+      <ol className="max-w-[848px] mx-auto px-6 pt-16 pb-28 flex flex-col gap-16">
+        <Step number={1} title="Open the extension list">
+          <StepImage src={first} width={800} alt="Open extension list" />
+        </Step>
+        <Step number={2} title="Pin the extension">
+          <StepImage src={second} width={800} alt="Pin the extension" />
+        </Step>
+        <Step
+          number={3}
+          title={`Go to a website you'd like to block, open extension and click "Block current website"`}
+        >
+          <StepImage src={third} width={800} alt="Block a website" />
+        </Step>
+      </ol>
+    </main>
   );
 }

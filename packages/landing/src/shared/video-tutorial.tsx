@@ -3,24 +3,18 @@ export const VideoTutorial = ({ id }: { id?: string }) => {
   return (
     <div
       id={id}
-      className={"w-full h-full md:w-[480px] md:h-[292px] rounded-2xl border-4 border-amber-200/60 overflow-hidden isolate"}
-      style={{
-        position: "relative",
-      }}
+      className="rounded-3xl p-2 bg-highlight shadow-frame"
     >
-      <video
-        controls
-        poster="https://general-bucket.memocard.org/just-block-video-prevew.png"
-        style={{
-          width: "100%",
-          height: "100%",
-          aspectRatio: "16 / 9",
-          display: "block",
-        }}
-      >
-        <source src="https://general-bucket.memocard.org/just-block.av1.mp4" type='video/mp4; codecs="av01.0.09M.10"' />
-        <source src="https://general-bucket.memocard.org/just-block.h264.mp4" type="video/mp4" />
-      </video>
+      <div className="rounded-[18px] overflow-hidden isolate bg-paper aspect-video">
+        <video
+          controls
+          poster="https://general-bucket.memocard.org/just-block-video-prevew.png"
+          className="block w-full h-full"
+        >
+          <source src="https://general-bucket.memocard.org/just-block.av1.mp4" type='video/mp4; codecs="av01.0.09M.10"' />
+          <source src="https://general-bucket.memocard.org/just-block.h264.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 };

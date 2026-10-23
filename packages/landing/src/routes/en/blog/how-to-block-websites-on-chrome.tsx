@@ -3,7 +3,9 @@ import { extensionLink, websiteUrl } from "@shared/config";
 import first from "@/assets/img/1.png";
 import second from "@/assets/img/2.png";
 import third from "@/assets/img/3.png";
-import { keyFeatures } from "@/shared/text/key-features";
+import { PageHero } from "@/components/page-hero";
+import { Step, StepImage } from "@/components/step";
+import { KeyFeatureList } from "@/components/key-features";
 
 export const Route = createFileRoute("/en/blog/how-to-block-websites-on-chrome")({
   head: () => ({
@@ -43,71 +45,45 @@ export const Route = createFileRoute("/en/blog/how-to-block-websites-on-chrome")
 
 function Page() {
   return (
-    <div className="bg-white py-12 ">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        <h1 className="font-bold tracking-tight text-4xl mb-8">
-          How to block websites on Chrome
-        </h1>
+    <main>
+      <PageHero title="How to block websites on Chrome" />
 
-        <div className="mt-6 text-lg space-y-6">
-          <p>
-            In the digital age, distractions are just a click away. Social
-            media, news sites, and various forms of entertainment can easily
-            consume our time.
-          </p>
-
-          <p>
-            JustBlock is a simple Chrome extension that makes it easy to block
-            distracting websites.
-          </p>
-
-          <h2 className="text-3xl font-bold mb-4">
-            How to block websites with JustBlock
-          </h2>
-
-          <ol className="list-decimal list-inside space-y-4">
-            <li>
-              Install the extension from the{" "}
-              <a href={extensionLink} className={"underline text-blue-500"}>
-                Chrome store
-              </a>
-            </li>
-
-            <li>
-              Open the extension list in Chrome by clicking on the puzzle piece
-              icon in the top right corner of your browser
-              <img
-                loading={"lazy"}
-                src={first}
-                width={800}
-                alt={"Open extension list"}
-                className={"mt-2"}
-              />
-            </li>
-            <li>
-              Find the JustBlock extension and click on the pin icon to pin it
-              to your browser toolbar for easy access
-              <img
-                loading={"lazy"}
-                src={second}
-                width={800}
-                className={"mt-2"}
-                alt={"Pin the extension"}
-              />
-            </li>
-            <li>
-              Navigate to a website you want to block, click on the JustBlock
-              extension icon, and select "Block current website"
-              <img
-                loading={"lazy"}
-                src={third}
-                width={800}
-                alt={"Block a website"}
-                className={"mt-2"}
-              />
-            </li>
+      <article className="max-w-[848px] mx-auto px-6 pt-16 pb-28 flex flex-col gap-14 text-[18px] leading-[1.7] text-ink-soft">
+        <section className="flex flex-col gap-8">
+          <ol className="flex flex-col gap-12">
+            <Step
+              number={1}
+              title={
+                <>
+                  Install the extension from the{" "}
+                  <a
+                    href={extensionLink}
+                    className="text-brand underline underline-offset-4"
+                  >
+                    Chrome store
+                  </a>
+                </>
+              }
+            />
+            <Step
+              number={2}
+              title="Open the extension list in Chrome by clicking on the puzzle piece icon in the top right corner of your browser"
+            >
+              <StepImage src={first} width={800} alt="Open extension list" />
+            </Step>
+            <Step
+              number={3}
+              title="Find the JustBlock extension and click on the pin icon to pin it to your browser toolbar for easy access"
+            >
+              <StepImage src={second} width={800} alt="Pin the extension" />
+            </Step>
+            <Step
+              number={4}
+              title='Navigate to a website you want to block, click on the JustBlock extension icon, and select "Block current website"'
+            >
+              <StepImage src={third} width={800} alt="Block a website" />
+            </Step>
           </ol>
-
           <p>
             That's it! The website will now be blocked. If you want to access
             the blocked website, you'll need to solve a captcha to prevent you
@@ -116,22 +92,25 @@ function Page() {
             the concept of making bad habits harder to repeat, as discussed in
             the book "Atomic Habits".
           </p>
+        </section>
 
-          <h2 className="text-3xl font-bold mb-4">Key features of JustBlock</h2>
-          <ul className="list-disc list-inside space-y-2">
-            {keyFeatures.map((feature, i) => (
-              <li key={i}>{feature}</li>
-            ))}
-          </ul>
-
+        <section className="flex flex-col gap-8">
+          <ArticleTitle>Key features of JustBlock</ArticleTitle>
+          <KeyFeatureList />
           <p>
             JustBlock offers a simple and effective solution to help you stay
             focused and productive by blocking distracting websites. Don't let
             websites control you. Control them instead and say no to
             distractions.
           </p>
-        </div>
-      </div>
-    </div>
+        </section>
+      </article>
+    </main>
   );
 }
+
+const ArticleTitle = ({ children }: { children: string }) => (
+  <h2 className="text-[30px] leading-[1.2] font-extrabold tracking-[-0.025em] text-ink-strong">
+    {children}
+  </h2>
+);
