@@ -198,7 +198,7 @@ export function KeyFeatureList() {
 
 export function KeyFeatures() {
   return (
-    <section className="max-w-[848px] mx-auto px-6 pt-16 md:pt-28 flex flex-col items-center gap-15 md:gap-10">
+    <section className="max-w-[848px] mx-auto px-6 pt-16 flex flex-col items-center gap-15 md:gap-16">
       <SectionTitle id="features">Key Features</SectionTitle>
       <KeyFeatureList />
     </section>
