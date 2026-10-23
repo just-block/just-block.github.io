@@ -21,7 +21,7 @@ Opens at http://localhost:11052.
 To preview the production static build:
 
 ```bash
-pnpm run -F=landing build-and-serve
+pnpm run -F=landing build && pnpm run -F=landing preview
 ```
 
 ## Extension

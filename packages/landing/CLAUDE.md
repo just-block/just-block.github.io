@@ -1,15 +1,15 @@
 # CLAUDE.md
 
-Landing page for JustBlock Chrome extension. Next.js 14, static export, Tailwind + shadcn/ui.
+Landing page for JustBlock Chrome extension. TanStack Start (prerendered SSG), Vite, Tailwind v3 + shadcn/ui.
 
 ## Commands
 
 - `pnpm run dev` - Dev server (port 11052)
-- `pnpm run build` - Production build (static export to `out/`, runs next-sitemap post-build)
-- `pnpm run lint` - ESLint
+- `pnpm run build` - Production build (prerendered static HTML + `sitemap.xml` in `dist/client/`)
+- `pnpm run preview` - Serve the production build
 
 ## Notes
 
-- Static export (`output: 'export'`) — no server-side features
+- Prerendered static site (GitHub Pages) — no server-side features. Pages are file routes in `src/routes/`; list new pages in `pages` in `vite.config.ts` for prerender + sitemap
 - Path alias: `@/*` → `src/*`
-- Shared config (pricing, links, etc.) is in `packages/shared` — import from `"shared"` (pnpm workspaces)
+- Shared config (pricing, links, etc.) is in `packages/api/shared` — import from `"@shared/config"`

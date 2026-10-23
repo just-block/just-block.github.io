@@ -1,4 +1,3 @@
-"use client";
 
 export const VideoTutorial = ({ id }: { id?: string }) => {
   return (

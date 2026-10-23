@@ -1,5 +1,5 @@
 import { JustBlockLogo } from "@/components/just-block-logo";
-import { supportEmail, extensionLink } from "shared";
+import { supportEmail, extensionLink } from "@shared/config";
 
 const footerLinks = {
   product: [

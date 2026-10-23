@@ -1,8 +1,12 @@
-import Image from "next/image";
-import { price } from "shared";
+import { createFileRoute } from "@tanstack/react-router";
+import { price } from "@shared/config";
 import { StepNumber } from "@/components/step-number";
 
-export default function Page() {
+export const Route = createFileRoute("/en/upgrade")({
+  component: Page,
+});
+
+function Page() {
   return (
     <div className="flex flex-col w-full items-center bg-[#faf6eb] py-16 px-4 border-b border-amber-200/60">
       {/* Header */}
@@ -25,7 +29,7 @@ export default function Page() {
               Open Settings and click "Upgrade"
             </h2>
           </div>
-          <Image
+          <img
             src="/img/upgrade/1.png"
             alt="Settings with Upgrade button"
             width={320}
@@ -61,7 +65,7 @@ export default function Page() {
               Enter license key and click "Activate"
             </h2>
           </div>
-          <Image
+          <img
             src="/img/upgrade/2.png"
             alt="Settings with license key field"
             width={320}

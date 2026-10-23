@@ -1,9 +1,13 @@
-import Image from "next/image";
-import first from "@/app/en/img/1.png";
-import second from "@/app/en/img/2.png";
-import third from "@/app/en/img/3.png";
+import { createFileRoute } from "@tanstack/react-router";
+import first from "@/assets/img/1.png";
+import second from "@/assets/img/2.png";
+import third from "@/assets/img/3.png";
 
-export default function Page() {
+export const Route = createFileRoute("/en/welcome")({
+  component: Page,
+});
+
+function Page() {
   return (
     <div className="flex flex-col w-full items-center bg-[#faf6eb] py-16 px-4 border-b border-amber-200/60">
       {/* Header */}
@@ -18,7 +22,7 @@ export default function Page() {
           <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
             1. Open the extension list
           </h2>
-          <Image
+          <img
             loading="lazy"
             src={first}
             width={800}
@@ -31,7 +35,7 @@ export default function Page() {
           <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
             2. Pin the extension
           </h2>
-          <Image
+          <img
             loading="lazy"
             src={second}
             width={800}
@@ -45,7 +49,7 @@ export default function Page() {
             3. Go to a website you'd like to block, open extension and click
             "Block current website"
           </h2>
-          <Image
+          <img
             loading="lazy"
             src={third}
             width={800}

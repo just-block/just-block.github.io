@@ -1,4 +1,4 @@
-import { extensionLink } from "shared";
+import { extensionLink } from "@shared/config";
 
 export const navRoutes = [
   {

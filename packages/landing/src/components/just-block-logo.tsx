@@ -1,8 +1,6 @@
-import Image from "next/image";
-
 export const JustBlockLogo = () => {
   return (
-    <Image
+    <img
       alt="JustBlock logo"
       width="106"
       height="42"

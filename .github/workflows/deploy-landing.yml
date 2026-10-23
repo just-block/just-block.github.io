@@ -11,6 +11,7 @@ on:
     branches: ["main"]
     paths:
       - "packages/landing/**"
+      - "packages/api/shared/**"
       - "package.json"
       - ".github/workflows/deploy-landing.yml"
   workflow_dispatch:
@@ -37,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: packages/landing/out
+          path: packages/landing/dist/client
 
   deploy:
     needs: build

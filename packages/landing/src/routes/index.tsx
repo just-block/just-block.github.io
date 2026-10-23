@@ -1,13 +1,18 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { Highlight } from "@/components/highlight";
 import { Button } from "@/components/ui/button";
 import { ChromeIcon } from "@/components/icons/chromeIcon";
-import { extensionLink, price, supportEmail } from "shared";
+import { extensionLink, price, supportEmail } from "@shared/config";
 import { KeyFeatures } from "@/components/key-features";
 import { Faq } from "@/components/faq";
 import { VideoTutorial } from "@/shared/video-tutorial";
 import { PlayDemoLink } from "@/components/play-demo-link";
 
-export default function Page() {
+export const Route = createFileRoute("/")({
+  component: Page,
+});
+
+function Page() {
   return (
     <main className={"flex flex-col items-center"}>
       <div className="w-full bg-[#faf6eb] pb-8 pt-8 border-b border-amber-200/60">

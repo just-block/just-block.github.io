@@ -1,10 +1,8 @@
-"use client";
 import { Container } from "@/components/container";
-import Link from "next/link";
 import { Menu } from "lucide-react";
 import React from "react";
 import { JustBlockLogo } from "@/components/just-block-logo";
-import { navRoutes } from "@/app/navRoutes";
+import { navRoutes } from "@/components/navRoutes";
 import {
   Sheet,
   SheetClose,
@@ -26,9 +24,9 @@ export const Header = () => {
     <header className={`sticky top-0 z-50 bg-[#faf6eb]/95 backdrop-blur-md border-b transition-colors duration-200 ${scrolled ? "border-amber-200/60" : "border-transparent"}`}>
       <Container>
         <div className="px-6 lg:px-8 flex h-14 items-center justify-between w-full">
-          <Link href="/" className="ml-4 lg:ml-0">
+          <a href="/" className="ml-4 lg:ml-0">
             <JustBlockLogo />
-          </Link>
+          </a>
 
           {/* Mobile menu */}
           <div className="md:hidden">
@@ -40,12 +38,12 @@ export const Header = () => {
                 <nav className="flex flex-col gap-1 mt-6">
                   {navRoutes.map((route, i) => (
                     <SheetClose asChild key={i}>
-                      <Link
+                      <a
                         href={route.href}
                         className="block px-3 py-2.5 text-[13px] font-semibold uppercase tracking-[0.08em] text-amber-950/50 hover:text-amber-900 transition-colors duration-200"
                       >
                         {route.label}
-                      </Link>
+                      </a>
                     </SheetClose>
                   ))}
                 </nav>
@@ -58,13 +56,13 @@ export const Header = () => {
             {navRoutes
               .filter((route) => !route.isSmHidden)
               .map((route, i) => (
-                <Link
+                <a
                   key={i}
                   href={route.href}
                   className="py-1 text-[13px] font-semibold uppercase tracking-[0.08em] text-amber-900/70 hover:text-amber-900 border-b border-transparent hover:border-amber-300 transition-all duration-200"
                 >
                   {route.label}
-                </Link>
+                </a>
               ))}
           </nav>
         </div>

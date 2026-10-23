@@ -1,11 +1,47 @@
-import { extensionLink } from "shared";
-import first from "@/app/en/img/1.png";
-import second from "@/app/en/img/2.png";
-import third from "@/app/en/img/3.png";
-import Image from "next/image";
+import { createFileRoute } from "@tanstack/react-router";
+import { extensionLink, websiteUrl } from "@shared/config";
+import first from "@/assets/img/1.png";
+import second from "@/assets/img/2.png";
+import third from "@/assets/img/3.png";
 import { keyFeatures } from "@/shared/text/key-features";
 
-export default function Page() {
+export const Route = createFileRoute("/en/blog/how-to-block-websites-on-chrome")({
+  head: () => ({
+    meta: [
+      {
+        name: "description",
+        content:
+          "Learn how to block websites on Chrome. Block websites and get free time for what truly matters.",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: websiteUrl,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "How to block websites on Chrome",
+              item: `${websiteUrl}/en/blog/how-to-block-websites-on-chrome`,
+            },
+          ],
+        }),
+      },
+    ],
+  }),
+  component: Page,
+});
+
+function Page() {
   return (
     <div className="bg-white py-12 ">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
@@ -40,7 +76,7 @@ export default function Page() {
             <li>
               Open the extension list in Chrome by clicking on the puzzle piece
               icon in the top right corner of your browser
-              <Image
+              <img
                 loading={"lazy"}
                 src={first}
                 width={800}
@@ -51,7 +87,7 @@ export default function Page() {
             <li>
               Find the JustBlock extension and click on the pin icon to pin it
               to your browser toolbar for easy access
-              <Image
+              <img
                 loading={"lazy"}
                 src={second}
                 width={800}
@@ -62,7 +98,7 @@ export default function Page() {
             <li>
               Navigate to a website you want to block, click on the JustBlock
               extension icon, and select "Block current website"
-              <Image
+              <img
                 loading={"lazy"}
                 src={third}
                 width={800}
